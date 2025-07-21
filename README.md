@@ -3,6 +3,7 @@
 ## ***SeqWeb*** _is to the_ **OEIS** _as_ **DBpedia** _is to_ **Wikipedia**.
 
 SeqWeb Project documentation may be found [here](https://seqweb.github.io/seqweb/).
+See also [SeqWeb Project Status](status.md) for current updates.
 
 - SeqWeb extends the OEIS, one of the world's largest mathematical knowledge bases, with an independent, open,  knowledge graph resource.
 
@@ -163,3 +164,5 @@ To support this, the "core" SeqWeb ontology will contain definitions like
 As a possible application, one could imagine a program that systematically walks through all the sequences, applying Superseeker transforms, and adding the appropriate assertions into the SeqWeb graph whenever it gets a hit.  In aggregate, this "transform subgraph" would itself be an interesting object of study (for example compound transform relationships, cycles and cliques).  Generally, such automations will advance and expand our OEIS-inspired knowledge without adding unduly to human editorial burdens.
 
 It will be interesting to see what innovations the addition of the SeqWeb resource into the ecosystem may catalyze.
+
+---
