@@ -1,4 +1,6 @@
 # seqweb
+![SeqWeb Project Icon](https://github.com/seqweb/seqwebcode/raw/main/docs/icons/seqweb_project_icon.png)
+
 ## ***SeqWeb*** _is to the_ **OEIS** _as_ **DBpedia** _is to_ **Wikipedia**.
 
 Project level documentation may be found at the [SeqWeb Wiki](https://github.com/seqweb/seqweb/wiki)
