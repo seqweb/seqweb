@@ -1,5 +1,4 @@
-# seqweb
-![SeqWeb Project Icon](https://github.com/seqweb/seqwebcode/raw/main/docs/icons/seqweb_project_icon.png)
+# ![SeqWeb Project Icon](assets/icons/seqweb_icon_64x64.png) SeqWeb
 
 ## ***SeqWeb*** _is to the_ **OEIS** _as_ **DBpedia** _is to_ **Wikipedia**.
 
