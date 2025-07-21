@@ -1,6 +1,8 @@
 # seqweb
 ## ***SeqWeb*** _is to the_ **OEIS** _as_ **DBpedia** _is to_ **Wikipedia**.
 
+Project level documentation may be found at the [SeqWeb Wiki](https://github.com/seqweb/seqweb/wiki)
+
 - SeqWeb extends the OEIS, one of the world's largest mathematical knowledge bases, with an independent, open,  knowledge graph resource.
 
 - SeqWeb's mission is to further empower and amplify the discovery and development of this knowledge.
