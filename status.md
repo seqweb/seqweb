@@ -1,8 +1,11 @@
 # SeqWeb Project Status
+This page snapshots details of the SeqWeb project status as of 2025-07-21.
 
 SeqWeb is currently in active development with core infrastructure, architecture and ontology design and implementation underway.
 
-This page snapshots details of the SeqWeb project status as of 2025-07-21.
+
+
+
 
 
 
