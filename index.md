@@ -8,7 +8,7 @@ title: SeqWeb
 ## ***SeqWeb*** _is to the_ **OEIS** _as_ **DBpedia** _is to_ **Wikipedia**.
 
 SeqWeb Project documentation may be found [here](https://www.seqweb.org/).
-See also [SeqWeb Project Status]({{ site.baseurl }}/docs/status/) for current updates.
+See also [SeqWeb Project Status]({{ site.baseurl }}/docs/status) for current updates.
 
 - SeqWeb extends the OEIS, one of the world's largest mathematical knowledge bases, with an independent, open,  knowledge graph resource.
 
