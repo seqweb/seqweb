@@ -1,9 +1,14 @@
-# ![SeqWeb Project Icon](assets/icons/seqweb_icon_64x64.png) SeqWeb
+---
+layout: default
+title: SeqWeb
+---
+
+# ![SeqWeb Project Icon]({{ site.baseurl }}/assets/icons/seqweb_icon_64x64.png) SeqWeb
 
 ## ***SeqWeb*** _is to the_ **OEIS** _as_ **DBpedia** _is to_ **Wikipedia**.
 
 SeqWeb Project documentation may be found [here](https://www.seqweb.org/).
-See also [SeqWeb Project Status](status.md) for current updates.
+See also [SeqWeb Project Status]({{ site.baseurl }}/status/) for current updates.
 
 - SeqWeb extends the OEIS, one of the world's largest mathematical knowledge bases, with an independent, open,  knowledge graph resource.
 

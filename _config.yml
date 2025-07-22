@@ -1,0 +1,23 @@
+title: SeqWeb
+description: SeqWeb is to the OEIS as DBpedia is to Wikipedia
+baseurl: ""
+url: "https://www.seqweb.org"
+
+# Exclude development and source files
+exclude:
+  - _dev/
+  - _assets/*.drawio
+  - README.md  # Keep for GitHub, but exclude from Jekyll processing
+
+# Collections
+collections:
+  docs:
+    output: true
+    permalink: /:collection/:name/
+
+# Defaults
+defaults:
+  - scope:
+      path: "_docs"
+    values:
+      layout: "default"
