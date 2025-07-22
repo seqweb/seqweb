@@ -1,7 +1,7 @@
 # seqwebcode
 
 _**SeqWeb** is to the OEIS as DBpedia is to Wikipedia._<br>
-Project level documentation may be found at the [SeqWeb Documentation](https://seqweb.github.io/seqweb/)
+Project level documentation may be found at the [SeqWeb Documentation](https://www.seqweb.org/)
 
 ## Repository Overview
 This **seqwebcode** repository contains the code, documentation, and ontology for converting OEIS sequence data into a semantic web knowledge graph.
@@ -11,7 +11,7 @@ This **seqwebcode** repository contains the code, documentation, and ontology fo
 - **oeisdata**: `git@github.com:oeis/oeisdata.git` - OEIS source corpus (~400,000 .seq files, read-only data resource)
 - **seqwebdata**: `git@github.com:seqweb/seqwebdata.git` - Generated RDF data (.ttl files, output data)
 - **seqwebcode**: `git@github.com:seqweb/seqwebcode.git` - This repository (code, docs, ontology, tools)
-- **seqweb**: `git@github.com:seqweb/seqweb.git` - Project documentation repository (documentation at https://seqweb.github.io/seqweb/)
+- **seqweb**: `git@github.com:seqweb/seqweb.git` - Project documentation repository (documentation at https://www.seqweb.org/)
 - **.github**: `git@github.com:seqweb/.github.git` - Organization profile repository (controls the SeqWeb organization landing page)
 
 > **Note for Cursor users**: This workspace includes all repositories. The data repositories (oeisdata, seqwebdata) contain large numbers of files and should not be indexed. Focus development work in seqwebcode.

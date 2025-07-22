@@ -12,4 +12,4 @@ SeqWeb is currently in active development with core infrastructure, architecture
 ### Contributing
 SeqWeb is seeking interested potential early collaborators, academic partners, and supporters. 
 
-Project level documentation may be found at the [SeqWeb Documentation](https://seqweb.github.io/seqweb/)
+Project level documentation may be found at the [SeqWeb Documentation](https://www.seqweb.org/)
