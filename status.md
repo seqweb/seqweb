@@ -1,15 +1,11 @@
 # SeqWeb Project Status
-This page snapshots details of the SeqWeb project status as of 2025-07-21.
+This page snapshots the SeqWeb project status as of 2025-07-21.
 
-SeqWeb is currently in active development with core infrastructure, architecture and ontology design and implementation underway.
+# To participate:
+
+SeqWeb is currently in active development with core infrastructure, architecture and ontology design and implementation underway.  We're seeking interested potential early collaborators, academic partners, and supporters.  
+
+A Google Group is available -- you can mailto:seqwebdev@googlegroups.com and/or click this to request access to [`seqwebdev.slack.com`](https://forms.gle/Frxtt5aR2b4VZSEt7).
 
 
-
-
-
-
-
-### Contributing
-SeqWeb is seeking interested potential early collaborators, academic partners, and supporters. 
-
-Project level documentation may be found at the [SeqWeb Documentation](https://www.seqweb.org/)
+[SeqWeb project homepage](https://www.seqweb.org/)
