@@ -12,6 +12,6 @@ exclude:
 # Defaults
 defaults:
   - scope:
-      path: "_docs"
+      path: "docs"
     values:
       layout: "default"
