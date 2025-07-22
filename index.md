@@ -3,7 +3,7 @@ layout: default
 title: SeqWeb
 ---
 
-# ![SeqWeb Project Icon]({{ site.baseurl }}/_assets/icons/seqweb_icon_64x64.png) SeqWeb
+# ![SeqWeb Project Icon]({{ site.baseurl }}/assets/icons/seqweb_icon_64x64.png) SeqWeb
 
 ## ***SeqWeb*** _is to the_ **OEIS** _as_ **DBpedia** _is to_ **Wikipedia**.
 
