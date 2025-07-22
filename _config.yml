@@ -9,12 +9,6 @@ exclude:
   - _assets/*.drawio
   - README.md  # Keep for GitHub, but exclude from Jekyll processing
 
-# Collections
-collections:
-  docs:
-    output: true
-    permalink: /:collection/:name/
-
 # Defaults
 defaults:
   - scope:
