@@ -4,7 +4,7 @@ title: SeqWeb Systems Design
 ---
 # ![SeqWeb Project Icon](/assets/icons/seqweb_icon_64x64.png) SeqWeb Systems Design
 
-This document attempts a systematic concrete overview of the form and substance of SeqWeb.  For background and orientation regarding the project's context, motivation and aims readers should refer to the [SeqWeb Project Overview](/docs/seqweb_overview.md).
+This document attempts a systematic concrete overview of the form and substance of SeqWeb.  For background and orientation regarding the project's context, motivation and aims readers should refer to the [SeqWeb Overview](/docs/seqweb_overview.md).
 
 To ensure contextual grounding this presentation follows a top-down, _breadth-first_ order.  It first presents SeqWeb as an Internet _system_, operating closely within its Web _ecosystem_ with two others.  It then summarizes each of the relevant component _subsystems_ of those systems.  Finally it overviews the particular subsystems.  More detailed designs and implementations for each subsystem is then left to be addressed in their own linked documents.
 
