@@ -26,6 +26,54 @@
         nav a:hover {
             text-decoration: underline;
         }
+        
+        /* Dropdown styles */
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        
+        .dropbtn {
+            background-color: transparent;
+            color: #333;
+            padding: 0.5rem 1rem;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+            margin-right: 1rem;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 5px;
+        }
+        
+        .dropdown-content a {
+            color: #333;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            margin-right: 0;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+            text-decoration: none;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        .dropdown:hover .dropbtn {
+            background-color: #e9ecef;
+        }
+        
         main {
             min-height: 400px;
         }
