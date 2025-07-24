@@ -1,14 +1,14 @@
 ---
 layout: default
-title: SeqWeb Ecosystem
+title: SeqWeb Systems Design
 ---
-# ![SeqWeb Project Icon](/assets/icons/seqweb_icon_64x64.png) SeqWeb Ecosystem
+# ![SeqWeb Project Icon](/assets/icons/seqweb_icon_64x64.png) SeqWeb Systems Design
 
-This document attempts a systematic concrete overview of the form and substance of SeqWeb.  For background and orientation regarding the project's context, motivation and aims readers should refer to the [SeqWeb Project Overview]({{ site.baseurl }}/index.md).
+This document attempts a systematic concrete overview of the form and substance of SeqWeb.  For background and orientation regarding the project's context, motivation and aims readers should refer to the [SeqWeb Project Overview](/docs/seqweb_overview.md).
 
-To ensure contextual grounding the presentation follows a top-down, breadth-first order.  It first presents SeqWeb as an Internet _system_, operating closely within its Web _ecosystem_ with two others.  It then summarizes the  relevant component _subsystems_ of each system.  Finally it overviews the particular subsystems.  Detailed designs and implementations for each subsystem will then be addressed in their own linked documents.
+To ensure contextual grounding this presentation follows a top-down, _breadth-first_ order.  It first presents SeqWeb as an Internet _system_, operating closely within its Web _ecosystem_ with two others.  It then summarizes each of the relevant component _subsystems_ of those systems.  Finally it overviews the particular subsystems.  More detailed designs and implementations for each subsystem is then left to be addressed in their own linked documents.
 
-[Note: since SeqWeb is currently an early-stage work-in-progress, many presentations will only be sketches, with brief development hints, leaving things open for future collaiorations.]
+[Note: since SeqWeb is currently an early-stage work-in-progress, many presentations will only be sketches, with brief development hints, leaving things open for future collaborations.]
 
 ## Systems of the Ecosystem
 
