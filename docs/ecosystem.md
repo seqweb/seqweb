@@ -4,24 +4,33 @@ title: SeqWeb Ecosystem
 ---
 # ![SeqWeb Project Icon](/assets/icons/seqweb_icon_64x64.png) SeqWeb Ecosystem
 
-The SeqWeb _Ecosystem_ contains three large dynamic _Systems_:
-- the **OEIS**, which is independent, 
-- **SeqWeb**, which extends the OEIS, 
-- and **GitHub**, which connects them together.
+This document attempts a systematic concrete overview of the form and substance of SeqWeb.  It assumes readers have been sufficiently oriented regarding the project's context, motivation and aims by the likes of
+[SeqWeb Project Home]({{ site.baseurl }}/).
 
-## Systems
+To ensure contextual grounding the presentation follows a top-down, breadth-first order.  It first presents SeqWeb as an Internet _system_, operating closely within its Web _ecosystem_ with two others.  It then summarizes the  relevant component _subsystems_ of each system.  Finally it overviews the particular subsystems.  Detailed designs and implementations for each subsystem will then be addressed in their own linked documents.
 
-The **OEIS** System is associated with the _Org_ `oeis.org`.  It is owned and operated by the OEIS Foundation, a 501(c)3 charitable organization headquartered in New Jersey.  It supports the public OEIS website and endpoints, and is the primary source for the encyclopedic mathematical sequence content and related materials that the SeqWeb system augments.
+[Note: since SeqWeb is currently an early-stage work-in-progress, many presentations will only be sketches, with brief development hints, leaving things open for future collaiorations.]
 
-The **SeqWeb** System is associated with the Org `seqweb.org`.  It is currently owned and operated by Prometheus Sherpas LLC, a California corporation (pending intended future reassignment to a fully non-commerical party).  Its development is the objective of this project.  SeqWeb's focus is providing knowledge graph "metadata" that augments the OEIS, and also providing related online services.
+## Systems of the Ecosystem
 
-The **GitHub** System is associated with the Org `github.org`.  It is owned and operated by Microsoft.  It is a well-known code, data and content repository and development-services provider, used for numerous proprietary and open-source projects.  GitHub connects the SeqWeb project Ecosystem together, and supports its development and use.  
+The SeqWeb ecosystem includes:
+- the **OEIS**, an independent system and primary data source,
+- **SeqWeb**, which extends and augments the OEIS,
+- and **GitHub**, which connects them and provides infrastructure and tooling.
 
-## Subsystems
+Each system is associated with a distinct _org_, which serves as the shared identity for an Internet domain and the human organization that supports and governs its content and services.
+
+The **OEIS** system is associated with `oeis.org`. It is owned and operated by the OEIS Foundation, a 501(c)(3) nonprofit organization headquartered in New Jersey. The foundation maintains the public OEIS website and associated endpoints, and stewards the encyclopedic database of integer sequences and related resources. 
+
+The **SeqWeb** system is associated with `seqweb.org`. It is currently owned and operated by Prometheus Sherpas LLC, a California corporation, with an intended future transition to a fully non-commercial entity. Development and operation of SeqWeb is the primary objective of this project. Its mission is to deliver a knowledge graph that semantically enriches and extends the OEIS, along with related online services.
+
+The **GitHub** system is associated with `github.org`. It is owned and operated by Microsoft. GitHub is a widely used platform for hosting code, data, and collaborative development workflows. In the SeqWeb ecosystem, GitHub hosts the two key data repositories used by the other systems.  It also hosts the SeqWeb website and provides infrastructure for development, documentation, maintenance, and community engagement.
+
+## Subsystems of the Systems
 
 ### OEIS Subsystems
 
-The OEIS System operates and maintains a set of closed proprietary Subsystems that store, search and serve the OEIS data via the `www.oeis.org` website; host a user-developed wiki at the `www.oeis.org/wiki` subsite; and provide online tooling for the volunteer editors to review and edit submissions via the `www.oeis.org/drafts` subsite.
+The OEIS system operates and maintains a set of closed proprietary subsystems that store, search and serve the OEIS data via the `www.oeis.org` website; host a user-developed wiki at the `www.oeis.org/wiki` subsite; and provide online tooling for its large volunteer community to review and edit submissions via the `www.oeis.org/drafts` subsite.
 
 Most importantly, from SeqWeb's perspective, the OEIS operates what will call its _Publication Subsystem_ that regularly uploads updated snapshots of the entire OEIS article corpus and associated collateral materials into the GitHub System.
 
@@ -35,6 +44,12 @@ All code for the SeqWeb Sytem's processing, for serving the results, and for dev
 
 Finally the `seqweb` repo contains the technical documentation and project collateral, and provides content for the www.seqweb.org website via the _GitHub Pages Subsystem_.
 
-
 ### SeqWeb Subsystems
+
+
+### Subsystem Notes
+
+Each subsysten is scoped to a seperate area of concern or particular _domain_ of operation.  From an internal or implementation perspective, they are best-described using their own domain-specific vocabularies.
+
+
 
