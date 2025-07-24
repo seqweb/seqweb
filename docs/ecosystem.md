@@ -4,8 +4,7 @@ title: SeqWeb Ecosystem
 ---
 # ![SeqWeb Project Icon](/assets/icons/seqweb_icon_64x64.png) SeqWeb Ecosystem
 
-This document attempts a systematic concrete overview of the form and substance of SeqWeb.  It assumes readers have been sufficiently oriented regarding the project's context, motivation and aims by the likes of
-[SeqWeb Project Home]({{ site.baseurl }}/).
+This document attempts a systematic concrete overview of the form and substance of SeqWeb.  For background and orientation regarding the project's context, motivation and aims readers should refer to the [SeqWeb Project Overview]({{ site.baseurl }}/index.md).
 
 To ensure contextual grounding the presentation follows a top-down, breadth-first order.  It first presents SeqWeb as an Internet _system_, operating closely within its Web _ecosystem_ with two others.  It then summarizes the  relevant component _subsystems_ of each system.  Finally it overviews the particular subsystems.  Detailed designs and implementations for each subsystem will then be addressed in their own linked documents.
 
