@@ -18,5 +18,5 @@ title: SeqWeb
 
 ### Links
 
-[SeqWeb overview](/docs/seqweb_overview.md).
+[SeqWeb overview](/docs/seqweb_overview).
 
