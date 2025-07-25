@@ -1,0 +1,31 @@
+# SeqWeb AI Directives
+
+## Persistent Directives
+
+# Note: Global directives are now stored in ~/.cursor/rules/global-directives.mdc
+# This file contains only project-specific directives
+
+## Project Context
+- SeqWeb converts OEIS sequence data to semantic web knowledge graphs
+- Polyglot pipeline architecture with modules in Python, Java, Lisp, Bash
+- Focus on development velocity and clean foundation for team collaboration
+- Manual Draw.io export workflow with check_diagrams.py tool for maintenance
+
+## Myriad Relationship
+- Myriad is a temporary reference resource for seeding seqweb patterns
+- Extract useful patterns but avoid direct myriad dependencies
+- All myriad references should be segregated and removable
+- Goal: seqweb becomes completely independent open-source effort
+- Future participants won't know/care about myriad
+
+## AI Interaction Patterns
+- Use structured responses
+- Include context in prompts
+- Be explicit about requirements
+- Provide examples when needed
+- Document AI-related decisions
+- Follow established directive patterns
+description:
+globs:
+alwaysApply: false
+---

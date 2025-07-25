@@ -1,0 +1,56 @@
+# Global Cursor AI Directives
+
+## Persistent Directives
+
+### "Going Forward" Directive
+When the user prefixes a directive with "going forward", it remains in effect until notified otherwise. This directive applies to itself.
+
+**Definition**: A persistent directive modifier that makes any instruction or definition persist across:
+- The current session
+- All future sessions
+- All future conversations with me
+
+When you include "going forward" in a directive, I should:
+1. **Save the instruction** to my persistent memory/rules
+2. **Apply it immediately** in the current session
+3. **Maintain it** across all future sessions
+4. **Treat it as a permanent rule** until explicitly modified
+
+### Git Consolidate Directive
+When the user requests "git consolidate", immediately:
+
+1. **Review Phase**: Run `git status && git diff` to show all changes in a single command
+2. **Analysis**: If unexpected files appear in the changes, report them to the user and stop. If all changes are expected, proceed automatically to Step 3
+3. **Execution Phase**: Offer the command `git add . && git commit -m "[descriptive message]" && git push` for user execution
+
+**Usage**: `git consolidate [optional commit message]`
+
+**Safety Features**:
+- **Single review command**: `git status && git diff` shows everything at once
+- **Silent on expected changes**: Only reports unexpected modifications
+- **Automatic progression**: Proceeds to execution phase if no issues detected
+- **User control**: User decides whether to execute the final command
+
+**Key Behaviors**:
+- No commentary on expected changes
+- No "what to do next" questions
+- Automatic progression when changes are expected
+- User executes final command when ready
+
+## Global AI Interaction Patterns
+- Use structured responses
+- Include context in prompts
+- Be explicit about requirements
+- Provide examples when needed
+- Document AI-related decisions
+- Follow established directive patterns
+
+---
+description: Global Cursor AI directives that apply to all workspaces
+globs: ["**/*"]
+alwaysApply: true
+---
+description:
+globs:
+alwaysApply: false
+---

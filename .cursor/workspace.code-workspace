@@ -1,0 +1,59 @@
+{
+  "folders": [
+    {
+      "name": "seqwebcode (main)",
+      "path": "."
+    },
+    {
+      "name": "seqwebdata (generated RDF)",
+      "path": "/Users/mlb/Devo/Data/SeqWeb/seqwebdata"
+    },
+    {
+      "name": "oeisdata (OEIS corpus)",
+      "path": "/Users/mlb/Devo/Data/OEIS/oeisdata"
+    }
+  ],
+  "settings": {
+    "search.exclude": {
+      "/Users/mlb/Devo/Data/SeqWeb/seqwebdata/**": true,
+      "/Users/mlb/Devo/Data/OEIS/oeisdata/**": true,
+      "**/data/output/**": true,
+      "**/data/intermediate/**": true,
+      "**/tmp/**": true,
+      "**/node_modules/**": true,
+      "**/.git/**": true,
+      "**/*.log": true,
+      "**/logs/**": true
+    },
+    "files.exclude": {
+      "/Users/mlb/Devo/Data/SeqWeb/seqwebdata": true,
+      "/Users/mlb/Devo/Data/OEIS/oeisdata": true,
+      "**/data/output": true,
+      "**/data/intermediate": true,
+      "**/tmp": true,
+      "**/node_modules": true,
+      "**/.git": true,
+      "**/*.log": true,
+      "**/logs": true
+    },
+    "files.watcherExclude": {
+      "/Users/mlb/Devo/Data/SeqWeb/seqwebdata/**": true,
+      "/Users/mlb/Devo/Data/OEIS/oeisdata/**": true,
+      "**/data/output/**": true,
+      "**/data/intermediate/**": true,
+      "**/tmp/**": true
+    }
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-python.python",
+      "ms-python.black-formatter",
+      "ms-python.flake8",
+      "redhat.java",
+      "vscjava.vscode-java-debug",
+      "vscjava.vscode-java-test",
+      "vscjava.vscode-maven",
+      "ms-vscode.vscode-json"
+    ]
+  }
+}

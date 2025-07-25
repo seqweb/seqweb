@@ -1,0 +1,52 @@
+# SeqWeb Tooling Rules
+
+## CLI Structure
+- Use modular command structure
+- Keep commands focused and simple
+- Provide clear help messages
+- Support both short and long options
+- Use consistent naming patterns
+- Follow the `./seqweb` command pattern
+
+## Development Tools
+- Use Cursor as primary IDE
+- Keep development environment clean and standardized
+- Use Python virtual environments
+- Follow PEP 8 style guide
+- Use type hints consistently
+- Maintain polyglot development environment
+
+## Testing
+- Write unit tests for core functions
+- Include integration tests for pipeline stages
+- Test error conditions and edge cases
+- Mock external services and dependencies
+- Document test requirements
+- Test cross-language module interactions
+
+## Documentation
+- Keep READMEs up to date
+- Document all commands and tools
+- Include usage examples
+- Maintain changelog
+- Use clear, direct language
+- Document diagram workflows and maintenance
+
+## Version Control
+- Use mainline development
+- Make focused commits
+- Write clear commit messages
+- Keep history clean
+- Push changes regularly
+- Use "git consolidate" for rapid commits
+
+## Diagram Management
+- Use Draw.io for diagram creation
+- Export SVGs manually as best practice
+- Keep .drawio and .svg files together
+- Use check_diagrams.py for maintenance
+- Embed SVGs in documentation consistently
+description:
+globs:
+alwaysApply: false
+---

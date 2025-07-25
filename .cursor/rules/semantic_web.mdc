@@ -1,0 +1,44 @@
+# SeqWeb Semantic Web Rules
+
+## RDF Standards
+- Use standard vocabularies where possible (rdf:, rdfs:, owl:, xsd:)
+- Create custom ontologies for OEIS-specific concepts
+- Document custom ontology extensions clearly
+- Maintain clear namespace prefixes
+- Keep schemas in ontology/ directory
+- Use Turtle (.ttl) format for human readability
+
+## OEIS-Specific Ontology
+- Define OEIS sequence concepts and relationships
+- Map mathematical properties to RDF predicates
+- Create classes for sequence types and categories
+- Define properties for sequence relationships
+- Document all ontology decisions and rationale
+
+## SPARQL Generation
+- Generate valid SPARQL 1.1 queries
+- Use clear variable names
+- Include helpful comments
+- Handle edge cases gracefully
+- Support property paths for complex queries
+- Optimize for Fuseki performance
+
+## Data Quality
+- Validate RDF output against ontology
+- Check for missing required properties
+- Ensure proper URI formatting
+- Verify data type consistency
+- Maintain referential integrity
+- Log data quality issues
+
+## Knowledge Graph Construction
+- Build incremental graph updates
+- Support graph versioning
+- Maintain provenance information
+- Include metadata about conversion process
+- Support graph querying and exploration
+- Enable graph analytics and visualization
+description:
+globs:
+alwaysApply: false
+---
