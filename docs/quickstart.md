@@ -13,6 +13,7 @@
    cursor .
    ```
 
-3. - [TODO]
+3. Configure environment
+- [TODO]
 
 4. Start developing! 
