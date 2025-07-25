@@ -1,8 +1,12 @@
 {
   "folders": [
     {
-      "name": "seqwebcode (main)",
+      "name": "seqweb (main / docs / website)",
       "path": "."
+    },
+    {
+      "name": "seqwebcode (dev)",
+      "path": "/Users/mlb/Devo/seqwebcode"
     },
     {
       "name": "seqwebdata (generated RDF)",
@@ -11,6 +15,10 @@
     {
       "name": "oeisdata (OEIS corpus)",
       "path": "/Users/mlb/Devo/Data/OEIS/oeisdata"
+    },
+    {
+      "name": ".github (Github org-level config)",
+      "path": "/Users/mlb/seqweb/.github"
     }
   ],
   "settings": {
