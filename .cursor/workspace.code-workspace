@@ -6,7 +6,7 @@
     },
     {
       "name": "seqwebcode (dev)",
-      "path": "/Users/mlb/Devo/seqwebcode"
+      "path": "/Users/mlb/Devo/seqweb/seqwebcode"
     },
     {
       "name": "seqwebdata (generated RDF)",
@@ -18,7 +18,7 @@
     },
     {
       "name": ".github (Github org-level config)",
-      "path": "/Users/mlb/seqweb/.github"
+      "path": "/Users/mlb/Devo/seqweb/.github"
     }
   ],
   "settings": {
