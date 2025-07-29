@@ -50,15 +50,15 @@ Knowledge Graph  |   DBpedia    |   SeqWeb    |
 |                     |              |                |
 |---------------------|--------------|----------------|
 |                     | _sequences_  | _general info_ |
-| _knowledge graphs_  | ***SeqWeb*** | **DBpedia**    | 
-| _linked documents_  | **OEIS**     | **Wikipedia**  |
+| _knowledge graphs_  | ![SeqWeb Icon](/assets/icons/seqweb_icon_32x32.png) ***SeqWeb*** | ![DBpedia Icon](/assets/icons/dbpedia_icon_32x32.png) **DBpedia**    | 
+| _linked documents_  | ![OEIS Icon](/assets/icons/oeis_icon_32x32.png) **OEIS**     | ![Wikipedia Icon](/assets/icons/wikipedia_icon_32x32.png) **Wikipedia**  |
 
 Here's a thumbnail description of each component, with links to more information:
 
-### Wikipedia
+### ![Wikipedia Icon](/assets/icons/wikipedia_icon_32x32.png) Wikipedia
 Good ol' Wikipedia is familiar to almost everyone, but we might summarize it as a community-curated online encyclopedia of general information subject matter.  It is presented as web pages of formatted natural language content, along with associated graphics, references to relevant external resources and links to other Wikipedia articles.  For more general background about Wikipedia, see (of course) https://en.wikipedia.org/wiki/Wikipedia.
 
-### OEIS
+### ![OEIS Icon](/assets/icons/oeis_icon_32x32.png) OEIS
 The OEIS is likewise a comprehensive, community-curated online encyclopedia presented as rich web pages, supported by a worldwide community of contributors and editors.  However, in contrast to Wikipedia, the subject matter domain of the OEIS is more specialized, organized around mathematical integer sequences.  
 
 In practice over many years the OEIS has become a very broad catalog of knowledge in discrete mathematics, number theory and related areas.  Originated by Neil Sloane in 1964, first appearing in book form and then initially hosted by AT&T Bell Labs, it was spun off as a non-profit charitable foundation and open website by 2009.  It serves about 1 million hits a day with about 130,000 distinct users per month.  It currently hosts entries for around 400,000 sequences, receiving about 100 contributions a day from 13,000 registered users.  Submissions are reviewed and committed by around 200 volunteer editors and admins.
@@ -71,7 +71,7 @@ The OEIS site also supports a wiki, at https://oeis.org/wiki/Main_Page.  The OEI
 
 Anyone who registers as an OEIS user is assigned a "user page" in the wiki; for example https://oeis.org/wiki/User:N._J._A._Sloane (whose Wikipedia page is at https://en.wikipedia.org/wiki/Neil_Sloane).  The wiki can host user-provided content to supplement the entries, and the entries themselves employ the user-wiki URLs to assign authorship provenance, etc.  Thus the OEIS is a nexus not only of mathematical information, but a community of people, reflected in the Web.
 
-### DBpedia
+### ![DBpedia Icon](/assets/icons/dbpedia_icon_32x32.png) DBpedia
 DBpedia might be described as an extensive, community-curated semantic knowledge base that augments Wikipedia.  It represents Wikipedia as a knowledge graph, and is a premier exemplar of Tim Berners-Lee's vision of the Semantic Web.   
 
 _"...the Semantic Web is to enable people to share content ... beyond the boundaries of **strings** to the concept of **things**.”_<br>
@@ -87,7 +87,7 @@ For a concrete example, here is the actual DBpedia page corresponding to Wikiped
 
 Note that you can easily get from one URL to the other simply by switching the prefix part of the URL while  attaching the same "DBpedia" suffix.  For less self-referential examples, try suffixing "Neil_Sloane" or "On-Line_Encyclopedia_of_Integer_Sequences" to that "https://dbpedia.org/page/" prefix instead.
 
-### SeqWeb
+### ![SeqWeb Icon](/assets/icons/seqweb_icon_32x32.png) SeqWeb
 Thus the goal of the SeqWeb project is to develop and provide a companion web resource for the OEIS, akin to how DBpedia extends Wikipedia.  
 
 When fully operational, SeqWeb can be expected to tangibly include
@@ -108,11 +108,10 @@ Additionally, it is expected that SeqWeb will also support a collection of diver
 
 Development and delivery for SeqWeb are supported by Github repos, under the https://github.com/seqweb/ prefix:
 
-- `seqwebdata` is intended to contain a snapshot of SeqWeb's knowledge graph, synchronized to track with changes to `oeisdata` and reflecting its content and structure
+- ![SeqWeb Data Icon](/assets/icons/seqwebdata_icon_32x32.png) `seqwebdata` is intended to contain a snapshot of SeqWeb's knowledge graph, synchronized to track with changes to `oeisdata` and reflecting its content and structure
 
-- `seqwebcode` is the development repo, and is intended as the source control for everything else in the SeqWeb system
+- ![SeqWeb Code Icon](/assets/icons/seqwebcode_icon_32x32.png) `seqwebcode` is the development repo, and is intended as the source control for everything else in the SeqWeb system
 
-[Note: currently, during early development, SeqWeb's formal ontologies and related collateral (such as vocabularies, modeling guides, etc) are assigned out of convenience to the `seqwebcode/ontology/` folder -- however we will want to revisit this and migrate them into `seqwebdata` instead]
 
 #### Possible Benefits to the OEIS from SeqWeb
 While it's impossible to predict what innovative uses for the OEIS's trove of knowledge SeqWeb will inspire, interesting outcomes can be anticipated in a few areas:

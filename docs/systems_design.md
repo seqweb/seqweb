@@ -45,9 +45,6 @@ Finally the `seqweb` repo contains the technical documentation and project colla
 
 ### SeqWeb Subsystems
 
-
-### Subsystem Notes
-
 Each subsysten is scoped to a seperate area of concern or particular _domain_ of operation.  From an internal or implementation perspective, they are best-described using their own domain-specific vocabularies.
 
 
