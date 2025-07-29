@@ -4,9 +4,9 @@ title: SeqWeb Systems Design
 ---
 # ![SeqWeb Project Icon](/assets/icons/seqweb_icon_64x64.png) SeqWeb Systems Design
 
-This document provides a systematic, concrete overview of the form and substance of SeqWeb.  For background and orientation regarding the project's context, motivation, and aims, readers should refer to the [SeqWeb Overview](/docs/seqweb_overview.md).
+This document provides a systematic, concrete overview of SeqWeb's form and substance.  For background and orientation regarding the project's context, motivation, and aims, readers should refer to the [SeqWeb Overview](/docs/seqweb_overview.md).
 
-To ensure contextual grounding, this presentation follows a top-down, _breadth-first_ order.  It first presents SeqWeb as an Internet _system_, operating closely within its Web _ecosystem_ with two others.  It then summarizes each of the relevant component _subsystems_ of those systems.  Finally, it overviews the particular subsystems.  More detailed designs and implementations for each subsystem are then left to be addressed in their own linked documents.
+To ensure contextual grounding, this presentation follows a top-down, _breadth-first_ order.  It first presents SeqWeb as an Internet _system_, operating closely within its Web _ecosystem_ with two others.  It then summarizes each of the relevant component _subsystems_ of those systems.  Finally, it provides an overview of the particular subsystems.  More detailed designs and implementations for each subsystem are then left to be addressed in their own linked documents.
 
 [Note: Since SeqWeb is currently an early-stage work-in-progress, many presentations will only be sketches, with brief development hints, leaving things open for future collaborations.]
 
@@ -27,15 +27,22 @@ Each system is associated with a distinct _org_ (organizational entity), which s
 
 ## Subsystems of the Systems
 
-Each subsystem is scoped to a separate area of concern or particular _domain_ of operation.  From an internal or implementation perspective, they are best described using their own domain-specific vocabularies.
+Having identified the three major systems that comprise the SeqWeb ecosystem, we now examine their component subsystems to understand how each system is organized and functions.
+
+Each subsystem is scoped to a separate area of concern or particular operational _domain_.  From an internal or implementation perspective, they are best described using their own domain-specific vocabularies.
 
 ### ![OEIS Icon](/assets/icons/oeis_icon_64x64.png) OEIS Subsystems
 
-The OEIS system operates and maintains a set of closed, proprietary subsystems that store, search, and serve the OEIS data via the `www.oeis.org` website, hosts a user-developed wiki at the `www.oeis.org/wiki` subsite, and provides online tooling for its large volunteer community to review and edit submissions via the `www.oeis.org/drafts` subsite.
+The OEIS system operates and maintains a set of closed, proprietary subsystems that:
+- store, search, and serve the OEIS data via the `www.oeis.org` website
+- host a user-developed wiki at the `www.oeis.org/wiki` subsite
+- provide online tooling for its large volunteer community to review and edit submissions via the `www.oeis.org/drafts` subsite
 
-Most importantly, from SeqWeb's perspective, the OEIS operates what we will call its _Publication Subsystem_ that regularly uploads updated snapshots of the entire OEIS article corpus and associated collateral materials into the GitHub system.
+Most importantly, from SeqWeb's perspective, the OEIS operates what we refer to as its _Publication Subsystem_ that regularly uploads updated snapshots of the entire OEIS article corpus and associated collateral materials into the GitHub system.
 
 ### ![GitHub Icon](/assets/icons/github_icon_64x64.png) GitHub Subsystems
+
+The GitHub system provides the repository infrastructure that enables the OEIS and SeqWeb systems to store and deliver data.  It also hosts project code, docs, collateral, and website.  
 
 The GitHub system supports four primary _Repository Subsystems_:
 - ![OEIS Data Icon](/assets/icons/oeisdata_icon_32x32.png) `oeisdata`
@@ -43,7 +50,7 @@ The GitHub system supports four primary _Repository Subsystems_:
 - ![SeqWeb Code Icon](/assets/icons/seqwebcode_icon_32x32.png) `seqwebcode`
 - ![SeqWeb Icon](/assets/icons/seqweb_icon_32x32.png) `seqweb`
 
-The first is associated with `oeis.org` and the other three with `seqweb.org`.  The OEIS and SeqWeb systems themselves are operationally decoupled and are related exclusively through their data repositories in GitHub.  
+The first repo is associated with `oeis.org` and the other three repos with `seqweb.org`.  Because the OEIS and SeqWeb systems are intentionally operationally decoupled, they are correlated through structural parallels between their data repositories in GitHub--for example the `seqwebdata` file named `A000000.ttl` would be derived using information from the corresponding `oeisdata` file named `A000000.seq`.
 
 ![OEIS Data Icon](/assets/icons/oeisdata_icon_32x32.png) As mentioned above, the OEIS system uploads updated snapshots to its `oeisdata` repo.  
 
@@ -51,9 +58,11 @@ The first is associated with `oeis.org` and the other three with `seqweb.org`.  
 
 ![SeqWeb Code Icon](/assets/icons/seqwebcode_icon_32x32.png) All code for the SeqWeb system's processing, for serving the results, and for developer tooling, resides in the `seqwebcode` repo.
 
-![SeqWeb Icon](/assets/icons/seqweb_icon_32x32.png) Finally, the `seqweb` repo contains the technical documentation and project collateral, and provides content for the www.seqweb.org website via the _GitHub Pages Subsystem_.
+![SeqWeb Icon](/assets/icons/seqweb_icon_32x32.png) The `seqweb` repo contains the technical documentation and project collateral, and provides content for the www.seqweb.org website via the _GitHub Pages Subsystem_.
 
 ### ![SeqWeb Icon](/assets/icons/seqweb_icon_64x64.png) SeqWeb Subsystems
+
+[todo]
 
 
 
