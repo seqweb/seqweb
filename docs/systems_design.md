@@ -68,7 +68,7 @@ The SeqWeb system design is driven by two major subsystem domains:
 
 #### Webwright
 
-The Webwright subsystem constructs the knowledge graph by orchestrating an ensemble of _Fabricators_. Each Fabricator is responsible for generating a specific portion of the knowledge graph, and implements a polyglot processing pipeline composed of individually-implemented software _Modules_ designed to interface readily with related Modules.
+The Webwright subsystem constructs the knowledge graph by orchestrating an ensemble of _Fabricators_. Each Fabricator is responsible for generating a specific portion of the knowledge graph, and implements a polyglot processing pipeline (see [Polyglot Pipeline Architecture](/docs/polyglot-pipeline.md)) composed of individually-implemented software _Modules_ designed to interface readily with related Modules.
 
 For example, a Fabricator might extract entities from selected OEIS entry text, and then build RDF triples linking the subject sequence to those entities via specific relationships. Upstream Modules in this Fabricator would handle entity extraction; downstream Modules would generate the RDF; others may support intermediate transformation, filtering, or enrichment.
 

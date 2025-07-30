@@ -1,0 +1,31 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/27.0.9 Chrome/134.0.6998.205 Electron/35.4.0 Safari/537.36" version="27.0.9">
+  <diagram name="Box Glyph" id="box-glyph-001">
+    <mxGraphModel dx="706" dy="604" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="zgx2dmv3c3j0Z4qMGbGF-9" value="" style="group;" vertex="1" connectable="0" parent="1">
+          <mxGeometry width="120" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="zgx2dmv3c3j0Z4qMGbGF-10" value="" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="zgx2dmv3c3j0Z4qMGbGF-9">
+          <mxGeometry width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="zgx2dmv3c3j0Z4qMGbGF-11" value="" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="zgx2dmv3c3j0Z4qMGbGF-9">
+          <mxGeometry x="40" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="zgx2dmv3c3j0Z4qMGbGF-12" value="" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="zgx2dmv3c3j0Z4qMGbGF-9">
+          <mxGeometry y="40" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="zgx2dmv3c3j0Z4qMGbGF-13" value="" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="zgx2dmv3c3j0Z4qMGbGF-9">
+          <mxGeometry x="40" y="40" width="80" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="zgx2dmv3c3j0Z4qMGbGF-14" value="" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="zgx2dmv3c3j0Z4qMGbGF-9">
+          <mxGeometry y="80" width="40" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="zgx2dmv3c3j0Z4qMGbGF-15" value="" style="shape=rectangle;whiteSpace=wrap;html=1;" vertex="1" parent="zgx2dmv3c3j0Z4qMGbGF-9">
+          <mxGeometry x="40.001999999999995" y="80" width="79.998" height="40" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
