@@ -38,11 +38,11 @@ The OEIS system operates and maintains a set of closed, proprietary subsystems t
 - host a user-developed wiki at the `www.oeis.org/wiki` subsite
 - provide online tooling for its large volunteer community to review and edit submissions via the `www.oeis.org/drafts` subsite
 
-Most importantly, from SeqWeb's perspective, the OEIS operates what we refer to as its _Publication Subsystem_ that regularly uploads updated snapshots of the entire OEIS article corpus and associated collateral materials into the GitHub system.
+Most importantly, from SeqWeb's perspective, the OEIS operates what we refer to as its _Publication Subsystem_ that regularly uploads updated snapshots of the entire OEIS article corpus and associated collateral materials into the GitHub system (described below).
 
 ### ![GitHub Icon](/assets/icons/github_icon_64x64.png) GitHub Subsystems
 
-The GitHub system provides the repository infrastructure that enables the OEIS and SeqWeb systems to store and deliver data.  It also hosts project code, docs, collateral, and website.  
+The GitHub system provides the repository infrastructure that enables the OEIS and SeqWeb systems to store and deliver data.  It also hosts SeqWeb's project code, docs, collateral, and community website.  
 
 The GitHub system supports four primary _Repository Subsystems_:
 - ![OEIS Data Icon](/assets/icons/oeisdata_icon_32x32.png) `oeisdata`
@@ -50,11 +50,11 @@ The GitHub system supports four primary _Repository Subsystems_:
 - ![SeqWeb Code Icon](/assets/icons/seqwebcode_icon_32x32.png) `seqwebcode`
 - ![SeqWeb Icon](/assets/icons/seqweb_icon_32x32.png) `seqweb`
 
-The first repo is associated with `oeis.org` and the other three repos with `seqweb.org`.  Because the OEIS and SeqWeb systems are intentionally operationally decoupled, they are correlated through structural parallels between their data repositories in GitHub--for example the `seqwebdata` file named `A000000.ttl` would be derived using information from the corresponding `oeisdata` file named `A000000.seq`.
+The first repo is associated with `oeis.org` and the other three repos with `seqweb.org`.  Because the OEIS and SeqWeb systems are intentionally operationally decoupled, they are correlated through structural parallels between their data in GitHub--for example the `seqwebdata` file named `A000000.ttl` would be derived using information from the corresponding `oeisdata` file named `A000000.seq`.
 
 ![OEIS Data Icon](/assets/icons/oeisdata_icon_32x32.png) As mentioned above, the OEIS system uploads updated snapshots to its `oeisdata` repo.  
 
-![SeqWeb Data Icon](/assets/icons/seqwebdata_icon_32x32.png) Then, downstream, the SeqWeb system sources this input and outputs a derived knowledge graph into its `seqwebdata` repo.  
+![SeqWeb Data Icon](/assets/icons/seqwebdata_icon_32x32.png) Then, downstream, the SeqWeb system sources this input and outputs the knowledge graph, archiving it into its `seqwebdata` repo.  
 
 ![SeqWeb Code Icon](/assets/icons/seqwebcode_icon_32x32.png) All code for the SeqWeb system's processing, for serving the results, and for developer tooling, resides in the `seqwebcode` repo.
 
@@ -62,7 +62,27 @@ The first repo is associated with `oeis.org` and the other three repos with `seq
 
 ### ![SeqWeb Icon](/assets/icons/seqweb_icon_64x64.png) SeqWeb Subsystems
 
-[todo]
+The SeqWeb system design is driven by two major subsystem domains:
+- the **Webwright** subsystem that _builds_ the knowledge graph content
+- the **Webhouse** subsystem that _delivers_ that content in various ways
+
+#### Webwright
+
+The Webwright subsystem constructs the knowledge graph by orchestrating an ensemble of _Fabricators_. Each Fabricator is responsible for generating a specific portion of the knowledge graph, and implements a polyglot processing pipeline composed of individually-implemented software _Modules_ designed to interface readily with related Modules.
+
+For example, a Fabricator might extract entities from selected OEIS entry text, and then build RDF triples linking the subject sequence to those entities via specific relationships. Upstream Modules in this Fabricator would handle entity extraction; downstream Modules would generate the RDF; others may support intermediate transformation, filtering, or enrichment.
+
+The Webwright framework is intentionally open-ended and designed for collaborative extension. Community contributors—whether mathematicians, language analysts, scientific sociologists or others—are encouraged to develop new Fabricators or share advanced Module technologies that reflect their own research interests and domain expertise. As an open-source project, SeqWeb encourages these contributions to build the knowledge graph, and then expand its scope and richness as it evolves.
+
+#### Webhouse
+
+The Webhouse subsystem delivers the constructed knowledge graph and its related artifacts to users and services. This includes the main sequence graph itself, supporting ontologies, definitions for derived or associated entities (like Users, Transforms, etc) and various forms of collateral content.
+
+Webhouse acts as a _semantic lakehouse_—a unified delivery layer that exposes this content through multiple interfaces: a SPARQL endpoint, RESTful resource APIs, downloadable data snapshots, and interactive user tools such as a SPARQL query console. While static RDF data is published via the `seqwebdata` repository for archival and distribution, the Webhouse serves as the live hub through which all dynamic access, integration, and interaction occurs.
+
+As part of the open-source SeqWeb project, the Webhouse subsystem similarly encourages contributions from systems and data engineers interested in building out its infrastructure and delivery capabilities. As the scope of the system grows—with larger graphs, multiplying ensembles of Fabricators to orchestrate, more diverse endpoints to serve, and higher query volume—many opportunities exist for applying distributed processing, scalable storage, and web performance optimization expertise. Infrastructure contributors can help engineer critical components such as the triple store and ensure that SeqWeb remains both accessible and robust as a public resource—alongside the OEIS, DBpedia and Wikipedia.
+
+
 
 
 
