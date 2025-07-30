@@ -22,7 +22,7 @@ The SeqWeb project is a community effort to create a new open resource of struct
 
 A knowledge graph is a datastore that provides rich ways for information to be represented, organized, accessed, augmented and used.  A familiar example is Google searches: the "knowledge cards" it displays alongside results are powered by similar metadata.
 
-The core technologies and standards embodied by modern knowledge graphs make the world’s data more accessible, interoperable, and useful—not just for people, but also for machines as well, such as today's AI engines.  See https://www.w3.org/2013/data/ for more background.
+The core technologies and standards embodied by modern knowledge graphs make the world’s data more accessible, interoperable, and useful—not just for people, but also for machines as well, such as today's AI engines.  See [https://www.w3.org/2013/data/](https://www.w3.org/2013/data/) for more background.
 
 ### SeqWeb's Global Embedding Matrix
 
@@ -56,20 +56,20 @@ Knowledge Graph  |   DBpedia    |   SeqWeb    |
 Here's a thumbnail description of each component, with links to more information:
 
 ### ![Wikipedia Icon](/assets/icons/wikipedia_icon_32x32.png) Wikipedia
-Good ol' Wikipedia is familiar to almost everyone, but we might summarize it as a community-curated online encyclopedia of general information subject matter.  It is presented as web pages of formatted natural language content, along with associated graphics, references to relevant external resources and links to other Wikipedia articles.  For more general background about Wikipedia, see (of course) https://en.wikipedia.org/wiki/Wikipedia.
+Good ol' Wikipedia is familiar to almost everyone, but we might summarize it as a community-curated online encyclopedia of general information subject matter.  It is presented as web pages of formatted natural language content, along with associated graphics, references to relevant external resources and links to other Wikipedia articles.  For more general background about Wikipedia, see (of course) [https://en.wikipedia.org/wiki/Wikipedia](https://en.wikipedia.org/wiki/Wikipedia).
 
 ### ![OEIS Icon](/assets/icons/oeis_icon_32x32.png) OEIS
 The OEIS is likewise a comprehensive, community-curated online encyclopedia presented as rich web pages, supported by a worldwide community of contributors and editors.  However, in contrast to Wikipedia, the subject matter domain of the OEIS is more specialized, organized around mathematical integer sequences.  
 
 In practice over many years the OEIS has become a very broad catalog of knowledge in discrete mathematics, number theory and related areas.  Originated by Neil Sloane in 1964, first appearing in book form and then initially hosted by AT&T Bell Labs, it was spun off as a non-profit charitable foundation and open website by 2009.  It serves about 1 million hits a day with about 130,000 distinct users per month.  It currently hosts entries for around 400,000 sequences, receiving about 100 contributions a day from 13,000 registered users.  Submissions are reviewed and committed by around 200 volunteer editors and admins.
 
-For more general information regarding the OEIS, see Wikipedia's article https://en.wikipedia.org/wiki/On-Line_Encyclopedia_of_Integer_Sequences, which includes some illustrative examples and other details.
+For more general information regarding the OEIS, see Wikipedia's article [https://en.wikipedia.org/wiki/On-Line_Encyclopedia_of_Integer_Sequences](https://en.wikipedia.org/wiki/On-Line_Encyclopedia_of_Integer_Sequences), which includes some illustrative examples and other details.
 
 A unique aspect of the OEIS is that its articles can be retrieved by their sequence's numerical pattern, as well as more conventional search queries.  This not only makes the OEIS a valuable content-addressable knowledge resource for general users that overcomes barriers of academic jargon, it has led to many serendipitous discoveries for mathematical researchers.  The OEIS has been cited in the scientific literature over 11,000 times.
 
-The OEIS site also supports a wiki, at https://oeis.org/wiki/Main_Page.  The OEIS wiki includes much additional information, including a helpful orientation page https://oeis.org/wiki/Welcome.
+The OEIS site also supports a wiki, at [https://oeis.org/wiki/Main_Page](https://oeis.org/wiki/Main_Page).  The OEIS wiki includes much additional information, including a helpful orientation page [https://oeis.org/wiki/Welcome](https://oeis.org/wiki/Welcome).
 
-Anyone who registers as an OEIS user is assigned a "user page" in the wiki; for example https://oeis.org/wiki/User:N._J._A._Sloane (whose Wikipedia page is at https://en.wikipedia.org/wiki/Neil_Sloane).  The wiki can host user-provided content to supplement the entries, and the entries themselves employ the user-wiki URLs to assign authorship provenance, etc.  Thus the OEIS is a nexus not only of mathematical information, but a community of people, reflected in the Web.
+Anyone who registers as an OEIS user is assigned a "user page" in the wiki; for example [https://oeis.org/wiki/User:N._J._A._Sloane](https://oeis.org/wiki/User:N._J._A._Sloane) (whose Wikipedia page is at [https://en.wikipedia.org/wiki/Neil_Sloane](https://en.wikipedia.org/wiki/Neil_Sloane)).  The wiki can host user-provided content to supplement the entries, and the entries themselves employ the user-wiki URLs to assign authorship provenance, etc.  Thus the OEIS is a nexus not only of mathematical information, but a community of people, reflected in the Web.
 
 ### ![DBpedia Icon](/assets/icons/dbpedia_icon_32x32.png) DBpedia
 DBpedia might be described as an extensive, community-curated semantic knowledge base that augments Wikipedia.  It represents Wikipedia as a knowledge graph, and is a premier exemplar of Tim Berners-Lee's vision of the Semantic Web.   
@@ -81,9 +81,9 @@ DBpedia provides machine-readable access to Wikipedia's underlying human-readabl
 
 Semantic technologies can bridge the natural expressiveness of human language with the power and utility of modern structured data and high-performance processing.  This has become especially relevant with the advent of modern LLMs and other AI technologies.
 
-An introduction to DBpedia can be found in the Wikipedia article https://en.wikipedia.org/wiki/DBpedia.  The DBPedia site itself also hosts informative pages, including https://www.dbpedia.org/about/.
+An introduction to DBpedia can be found in the Wikipedia article [https://en.wikipedia.org/wiki/DBpedia](https://en.wikipedia.org/wiki/DBpedia).  The DBPedia site itself also hosts informative pages, including [https://www.dbpedia.org/about/](https://www.dbpedia.org/about/).
 
-For a concrete example, here is the actual DBpedia page corresponding to Wikipedia's DBpedia article: https://dbpedia.org/page/DBpedia.  
+For a concrete example, here is the actual DBpedia page corresponding to Wikipedia's DBpedia article: [https://dbpedia.org/page/DBpedia](https://dbpedia.org/page/DBpedia).  
 
 Note that you can easily get from one URL to the other simply by switching the prefix part of the URL while  attaching the same "DBpedia" suffix.  For less self-referential examples, try suffixing "Neil_Sloane" or "On-Line_Encyclopedia_of_Integer_Sequences" to that "https://dbpedia.org/page/" prefix instead.
 
@@ -102,11 +102,11 @@ When fully operational, SeqWeb can be expected to tangibly include
 A central tenet of the project is that SeqWeb _augments_ the OEIS wholly independently and additively, without burdening or impacting the OEIS in any way.  No modifications of any kind to the OEIS's style, content, technology or operations are needed or desired.  Just as Wikipedia's readers and staff need not be concerned with the existence of DBpedia, the OEIS and its community of users and editors can continue as always -- _"It ain't broke; don't fix it."_
 
 #### Syncing SeqWeb with the OEIS via Github
-Conveniently, there is no requirement that SeqWeb keep up in real time with changes to the OEIS (just as for DBpedia with Wikipedia).  But, as it happens, the OEIS uploads an update to its complete snapshot to Github every few days.  The update is applied to the repository at https://github.com/oeis/oeisdata.  This repo's directory structure maps each OEIS article to a predictable Github file path URL.  For example the OEIS sequence at URL https://oeis.org/A046970 is memorialized in the `oeisdata` repo as the file https://github.com/oeis/oeisdata/blob/main/seq/A046/A046970.seq.  SeqWeb can therefore track the `oeisdata` repo to synchronize its model with the OEIS at will, to get the updated _base model_.  
+Conveniently, there is no requirement that SeqWeb keep up in real time with changes to the OEIS (just as for DBpedia with Wikipedia).  But, as it happens, the OEIS uploads an update to its complete snapshot to Github every few days.  The update is applied to the repository at [https://github.com/oeis/oeisdata](https://github.com/oeis/oeisdata).  This repo's directory structure maps each OEIS article to a predictable Github file path URL.  For example the OEIS sequence at URL [https://oeis.org/A046970](https://oeis.org/A046970) is memorialized in the `oeisdata` repo as the file [https://github.com/oeis/oeisdata/blob/main/seq/A046/A046970.seq](https://github.com/oeis/oeisdata/blob/main/seq/A046/A046970.seq).  SeqWeb can therefore track the `oeisdata` repo to synchronize its model with the OEIS at will, to get the updated _base model_.  
 
 Additionally, it is expected that SeqWeb will also support a collection of diverse processing modules whose purpose is to augment the base model with additional _derived_ information.  For example, a module might apply a natural language library to a particular section of an OEIS article's data (say the bibliographic citations) in order to extract associated named entities (say authors, or journals) to be represented as triples in the SeqWeb knowledge graph.  These modules will need to be re-run when their source data changes.  The detailed architecture for these modules, and the framework for orchestrating their application, is one of the more interesting tasks now awaiting further architecture and engineering.
 
-Development and delivery for SeqWeb are supported by Github repos, under the https://github.com/seqweb/ prefix:
+Development and delivery for SeqWeb are supported by Github repos, under the [https://github.com/seqweb/](https://github.com/seqweb/) prefix:
 
 - ![SeqWeb Data Icon](/assets/icons/seqwebdata_icon_32x32.png) `seqwebdata` is intended to contain a snapshot of SeqWeb's knowledge graph, synchronized to track with changes to `oeisdata` and reflecting its content and structure
 
