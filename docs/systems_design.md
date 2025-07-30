@@ -56,7 +56,7 @@ The first repo is associated with `oeis.org` and the other three repos with `seq
 
 ![SeqWeb Data Icon](/assets/icons/seqwebdata_icon_32x32.png) Then, downstream, the SeqWeb system sources this input and outputs the knowledge graph, archiving it into its `seqwebdata` repo.  
 
-![SeqWeb Code Icon](/assets/icons/seqwebcode_icon_32x32.png) All code for the SeqWeb system's processing, for serving the results, and for developer tooling, resides in the `seqwebcode` repo.
+![SeqWeb Code Icon](/assets/icons/seqwebcode_icon_32x32.png) All code for the SeqWeb system’s processing, for serving the results, and for developer tooling, resides in the `seqwebcode` repo. This repository includes a framework that supports the development of other SeqWeb deployments as well.
 
 ![SeqWeb Icon](/assets/icons/seqweb_icon_32x32.png) The `seqweb` repo contains the technical documentation and project collateral, and provides content for the www.seqweb.org website via the _GitHub Pages Subsystem_.
 
@@ -65,6 +65,8 @@ The first repo is associated with `oeis.org` and the other three repos with `seq
 The SeqWeb system design is driven by two major subsystem domains:
 - the **Webwright** subsystem that _builds_ the knowledge graph content
 - the **Webhouse** subsystem that _delivers_ that content in various ways
+
+Together, these subsystems define the architecture of a SeqWeb implementation. While `seqweb.org` provides the canonical public instance of this pattern, the open-source SeqWeb framework enables anyone to deploy and run their own instance—for experimentation, augmentation, integration, or federation. Each deployment is self-contained yet interoperable.
 
 #### Webwright
 

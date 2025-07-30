@@ -7,18 +7,20 @@ title: SeqWeb
 
 ## ***SeqWeb*** _is to the_ **OEIS** _as_ **DBpedia** _is to_ **Wikipedia**.
 
-- SeqWeb extends the OEIS, one of the world's largest mathematical knowledge bases, with an independent, open, knowledge graph resource.
+- SeqWeb extends the OEIS—one of the world's largest mathematical knowledge bases—with an independent, open, knowledge graph resource.
 
 - SeqWeb's mission is to further empower and amplify the discovery and development of this knowledge.
 
+- SeqWeb empowers a federation of community-driven deployments: `seqweb.org` is the public instance, but anyone can develop and run their own.
+
 - SeqWeb is in active development with core infrastructure, architecture and ontology design and implementation underway.
 
-- SeqWeb is seeking interested potential early collaborators, academic partners, and supporters.
+- SeqWeb welcomes interested potential early collaborators, academic partners, and supporters.
 
 See the [SeqWeb project homepage](https://www.seqweb.org/) for links to additional information.
 
 ### SeqWeb Overview
-The SeqWeb project is a community effort to create a new open resource of structured content, built on the   foundation of information established by the OEIS, freely available as an independent knowledge graph on the Web. 
+The SeqWeb project is a community effort revolving around the creation of a new open resource of structured content, built on the foundation of information established by the OEIS, freely available as an independent knowledge graph on the Web. 
 
 A knowledge graph is a datastore that provides rich ways for information to be represented, organized, accessed, augmented and used.  A familiar example is Google searches: the "knowledge cards" it displays alongside results are powered by similar metadata.
 
@@ -88,15 +90,19 @@ For a concrete example, here is the actual DBpedia page corresponding to Wikiped
 Note that you can easily get from one URL to the other simply by switching the prefix part of the URL while  attaching the same "DBpedia" suffix.  For less self-referential examples, try suffixing "Neil_Sloane" or "On-Line_Encyclopedia_of_Integer_Sequences" to that "https://dbpedia.org/page/" prefix instead.
 
 ### ![SeqWeb Icon](/assets/icons/seqweb_icon_32x32.png) SeqWeb
-Thus the goal of the SeqWeb project is to develop and provide a companion web resource for the OEIS, akin to how DBpedia extends Wikipedia.  
+Thus the driving objective of the SeqWeb project is to develop and provide a companion web resource for the OEIS—akin to how DBpedia extends Wikipedia.  
 
-When fully operational, SeqWeb can be expected to tangibly include
-- a knowledge graph implemented in a publicly-hosted database containing standardized linked open data
-- an open ontology describing the semantics and schemas of the SeqWeb data for human and machine (eg AI) use
-- a web service providing APIs and both conventional (REST) and semantic (SPARQL) query endpoints for applications
+When fully operational, SeqWeb is expected to include:
+- a knowledge graph implemented in a publicly hosted database containing standardized, linked open data
+- an open ontology describing the semantics and schemas of SeqWeb data for both human and machine (such as AI) use
+- a web service offering APIs and query endpoints for applications—both conventional (REST) and semantic (SPARQL)
 - infrastructure and automation for syncing and aligning SeqWeb with the ever-evolving OEIS
-- support for ongoing "open source" development processes and the contributing community
-- a technical framework encouraging extensions and experiments
+
+Another key project goal is to enable a community of SeqWeb developers empowered to collaborate via federated deployments—beyond the single centralized public resource at `seqweb.org`.
+
+As an open-source community project, SeqWeb also aims to provide:
+- support for diverse development initiatives and the contributing community
+- a technical framework and tooling to encourage extensions and experiments
 
 #### Tenet of Independence of the OEIS from SeqWeb
 A central tenet of the project is that SeqWeb _augments_ the OEIS wholly independently and additively, without burdening or impacting the OEIS in any way.  No modifications of any kind to the OEIS's style, content, technology or operations are needed or desired.  Just as Wikipedia's readers and staff need not be concerned with the existence of DBpedia, the OEIS and its community of users and editors can continue as always -- _"It ain't broke; don't fix it."_
@@ -148,7 +154,7 @@ Thus for example a single query expression might find all sequences authored by 
 
 This means in particular that extensions can be entirely implemented and hosted entirely independently by anyone at any time, thus removing material coordination barriers to diverse contributions.
 
-For example a set of specialized relationships between sequences could be identified by an academic researcher, embodied as a knowledge graph maintained at their home institution, and made fully available via federation with SeqWeb -- all without requiring any operational support from either SeqWeb or the OEIS.
+For example a set of specialized relationships between sequences could be identified by an academic researcher, embodied as a knowledge graph maintained at their home institution, and made fully available via SeqWeb federation -- all without requiring any operational support from either SeqWeb or the OEIS.
 
 **Discoveries** SeqWeb will enable and encourage new sorts of explorations.  For example sequence "transforms" are an important longstanding concept in the OEIS.  But today the only way to express these relationships is with natural language text commentary like "a(n) is the Möbius transform of the primes."  With  SeqWeb this could be modeled definitively by a triple like
 ```
