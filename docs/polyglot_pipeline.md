@@ -1,3 +1,7 @@
+---
+layout: default
+title: Polyglot Pipeline Architecture
+---
 # Polyglot Box-Passing Processing Pipeline Architecture
 
 ## Overview
