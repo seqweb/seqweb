@@ -1,19 +1,19 @@
 # Polyglot Box-Passing Processing Pipeline Architecture
 
-## 🧭 Overview
+## Overview
 
-*SeqWeb is to the OEIS as DBpedia is to Wikipedia.*
+One function of the SeqWeb system is to convert OEIS sequence data (`.seq` files) into semantic web knowledge graphs (`.ttl` files).  Such conversions lie in the domain of SeqWeb's _Webwright_ subsystem (see [Systems Design](/docs/systems_design.md) for context)
 
-A primary goal of the SeqWeb system, as implemented in this `seqwebcode` repository, is to convert OEIS sequence data (`.seq` files) into semantic web knowledge graphs (`.ttl` files).
+The Webwright subsystem constructs the knowledge graph by orchestrating an ensemble of _Fabricators_. Each Fabricator is responsible for generating a specific portion of the knowledge graph, and implements a polyglot processing pipeline  composed of individually-implemented software _Modules_ designed to interface readily with related Modules.  Each Module may be implemented in an arbitrary language (e.g., Python, Java, Lisp, Bash — see [Rationale for Polyglot Implementation](#rationale-for-polyglot-implementation) below).
 
-The `seqwebcode` architecture supports **polyglot pipelines** composed of modular processing **modules**, where each module may be implemented in an arbitrary language (e.g., Python, Java, Lisp, Bash — see [Rationale for Polyglot Implementation](#rationale-for-polyglot-implementation) below).
+For example, a Fabricator might extract entities from selected OEIS entry text, and then build RDF triples linking the subject sequence to those entities via specific relationships. Upstream Modules in this Fabricator would handle entity extraction; downstream Modules would generate the RDF; others may support intermediate transformation, filtering, or enrichment.
 
 <p align="center">
   <img src="../assets/drawings/pipeline.drawio.svg" width="650" alt="Pipeline" />
-  <br> <em>polyglot pipeline</em>
+  <br> <em>Fabricator polyglot pipeline architecture</em>
 </p>
 
-These modules communicate via a shared abstract structure called a **box** — a language-agnostic key-value map that flows through the pipeline.
+Modules communicate via a shared abstract structure called a **box** — functionally a box is just a language-agnostic key-value map that flows through the pipeline.
 
 <!-- ![Box glyph](../assets/drawings/box-glyph.drawio.svg) -->
 
@@ -22,13 +22,13 @@ These modules communicate via a shared abstract structure called a **box** — a
   <br> <em> a box</em>
 </p>
 
-Each module is designed as a **plug-and-play unit**, capable of being composed, replaced, tested, or reused independently, regardless of implementation language.
+Each module is designed to function as a **plug-and-play unit** in one or more Fabricator pipelines, in which modules may be composed, replaced, tested, or reused independently, regardless of implementation language.
 
-Modules may be composed via **native orchestration** (when implemented in the same language) or executed in isolation through **IO wrappers** that expose a standardized shell or CLI interface. This hybrid model allows clean decoupling, testability, and flexibility across execution boundaries.
+Modules may be composed using two different implementation mechanisms: via **native orchestration** (when the modules are implemented in the same language) or executed in isolation through **IO wrappers** that expose a standardized shell or CLI interface. This hybrid model allows clean decoupling, testability, and flexibility across execution boundaries.
 
 ---
 
-## 📦 Key Terminology
+## Key Terminology
 
 | Term                | Meaning |
 |---------------------|---------|
@@ -47,9 +47,9 @@ Modules may be composed via **native orchestration** (when implemented in the sa
 
 ---
 
-## 🔧 Implementation Patterns
+## Implementation Patterns
 
-### ✅ Destructuring Inner Function (Python)
+### Destructuring Inner Function (Python)
 
 ```python
 def normalize_prompt(box: dict, *, prompt, noisy=False, **_rest) -> dict:
@@ -65,7 +65,7 @@ def normalize_prompt(box: dict, *, prompt, noisy=False, **_rest) -> dict:
 
 ---
 
-### ✅ CLI Wrapper (Python)
+### CLI Wrapper (Python)
 
 ```python
 def main():
@@ -82,7 +82,7 @@ def main():
 
 ---
 
-## 🔁 Orchestration Example: Native Python
+## Generic Fabricator Example: Native Python
 
 ```python
 from typing import Callable, Dict, List, Optional
@@ -101,34 +101,34 @@ def run_pipeline(
         box = stage(box, **box)
     return box
 ```
-
-- Orchestrates native Python stages
-- Supports implicit pass-through of `config`, `noisy`, etc.
-- Easily extended with conditional logic, tracing, or logging
+This example Fabricator:
+- Orchestrates a set of native Python "stage" modules that it receives as an argument
+- Supports implicit pass-through of shared arguments such  as `config`, `noisy`, etc.
+- Could be easily extended with conditional logic, tracing, or logging
 
 ---
 
-## 🌐 Cross-Language Execution Model
+## Cross-Language Fabricator Execution Model
 
 When modules are implemented in different languages and invoked as standalone programs:
 
 - Each **program derives its `inbox` from its command-line arguments**, using the language's CLI parsing conventions (e.g., `argparse` in Python, `getopts` in Bash, etc.).
 - These arguments effectively form a **shell-flavored keyword map**, which becomes the initial `inbox`.
-- The program then passes this inbox to the corresponding **inner function** (using the destructuring pattern if supported).
+- The Fabricator then passes this inbox to the corresponding **inner function** (using the destructuring pattern if supported).
 - The result is a new **outbox**, which is serialized to **JSON** and written to stdout (or another standard stream or file as appropriate).
-- **Optionally**, a program may support a special flag (e.g. `--inbox-json`) to preload an initial inbox from a JSON object, merging it with the CLI-derived args — but this is not required.
-- If no such preload mechanism is used, the program should default to starting from an **empty box** and building it solely from the command-line arguments.
+- **Optionally**, a program may support a special flag (e.g. `--inbox-json`) to, say, preload an initial inbox from a JSON object, merging it with the CLI-derived args — but this is not required.
+- If no such preload mechanism is used, the Fabricator can default to starting from an **empty box**, or build it solely from other command-line arguments.
 
 This design allows for:
 - Simple shell usage (`myprog --foo bar --noisy`)
 - Compatibility with language-native command-line tooling
 - Optional integration with more structured JSON-based pipelines when needed
 
-### 🔁 Program Reusability
+### Program Reusability
 
-By structuring programs to build their inbox from command-line arguments (optionally merging with a JSON seed), each module becomes naturally reusable in multiple contexts:
+By structuring Module programs to build their inbox from command-line arguments (optionally merging with a JSON seed), each Module becomes naturally reusable in multiple contexts:
 
-- **As a stage** in a larger **polyglot pipeline**, invoked by an orchestrator.
+- **As a stage** in a larger **polyglot pipeline**, invoked by a Fabricator.
 - **As a standalone CLI tool**, usable directly by developers or scripts.
 - **In isolation for testing**, with inboxes constructed in code or passed via CLI.
 
@@ -136,10 +136,10 @@ This versatility makes it easy to scale from interactive experimentation to prod
 
 ---
 
-## 📘 Architectural Principles
+## Architectural Principles
 
 - **Destructurable box interface** — Functions only bind what they need.
-- **Non-destructive box mutation** — Modules are encouraged to preserve and extend the box, not replace it.
+- **Non-destructive box mutation** — Modules are encouraged to preserve and extend the passing box, not replace it.
 - **Interop via wrappers, speed via direct calls** — Same-language modules can call each other directly, avoiding shell overhead.
 - **Soft schema contracts** — Boxes have loose structure; modules declare required keys but tolerate unknown ones.
 - **Composable orchestration** — Pipelines can be expressed as ordered lists of stage functions or shell commands.
@@ -148,7 +148,7 @@ This versatility makes it easy to scale from interactive experimentation to prod
 
 ---
 
-## 🔍 Validation, error handling, testing, debugging & logging
+## Validation, error handling, testing, debugging & logging
 
 TODO: Add comprehensive section covering validation patterns, error handling strategies, testing approaches, debugging techniques, and logging standards for polyglot pipeline modules.
 
@@ -156,7 +156,7 @@ TODO: Add comprehensive section covering validation patterns, error handling str
 
 ## Rationale for Polyglot Implementation
 
-While the entire conversion pipeline could, in theory, be implemented in a single language, our design favors a **polyglot approach**. This allows each module to leverage the language best suited to its particular role, improving expressiveness, maintainability, and integration with existing tools.
+While the entire Fabricator pipelines could, in theory, be implemented in a single language, our design favors a **polyglot approach**. This allows each module to leverage the language best suited to its particular role, improving expressiveness, maintainability, and integration with existing tools.  For example:
 
 ### Java Strengths
 - High-performance file I/O and stream parsing
@@ -183,4 +183,4 @@ While the entire conversion pipeline could, in theory, be implemented in a singl
 - Natural fit for file-system-level orchestration and batch job wiring
 - Ubiquitous on UNIX-like systems and integrates well with Git, Make, etc.
 
-This modular, mixed-language design allows us to prototype rapidly, optimize when needed, and maintain clarity between different kinds of logic: transformation, coordination, parsing, and enrichment.
+The modular, mixed-language Webwright design pattern allows us to prototype rapidly, optimize when needed, and maintain clarity between different kinds of logic: transformation, coordination, parsing, and enrichment.
