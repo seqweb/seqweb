@@ -4,7 +4,7 @@ title: SeqWeb Systems Design
 ---
 # ![SeqWeb Project Icon](/assets/icons/seqweb_icon_64x64.png) SeqWeb Systems Design
 
-This document provides a systematic, concrete overview of SeqWeb's form and substance.  For background and orientation regarding the project's context, motivation, and aims, readers should refer to the [SeqWeb Overview](/docs/seqweb_overview).
+This document provides a systematic, concrete overview of SeqWeb's form and substance.  For background and orientation regarding the project's context, motivation, and aims, readers should refer to the [SeqWeb Overview](seqweb_overview).
 
 To ensure contextual grounding, this presentation follows a top-down, _breadth-first_ order.  It first presents SeqWeb as an Internet _system_, operating closely within its Web _ecosystem_ with two others.  It then summarizes each of the relevant component _subsystems_ of those systems.  Finally, it provides an overview of the particular subsystems.  More detailed designs and implementations for each subsystem are then left to be addressed in their own linked documents.
 
@@ -70,7 +70,7 @@ Together, these subsystems define the architecture of a SeqWeb implementation. W
 
 #### Webwright
 
-The Webwright subsystem constructs the knowledge graph by orchestrating an ensemble of _Fabricators_. Each Fabricator is responsible for generating a specific portion of the knowledge graph, and implements a polyglot processing pipeline (see [Polyglot Pipeline Architecture](/docs/polyglot_pipeline)) composed of individually-implemented software _Modules_ designed to interface readily with related Modules.
+The Webwright subsystem constructs the knowledge graph by orchestrating an ensemble of _Fabricators_. Each Fabricator is responsible for generating a specific portion of the knowledge graph, and implements a polyglot processing pipeline (see [Polyglot Pipeline Architecture](polyglot_pipeline)) composed of individually-implemented software _Modules_ designed to interface readily with related Modules.
 
 For example, a Fabricator might extract entities from selected OEIS entry text, and then build RDF triples linking the subject sequence to those entities via specific relationships. Upstream Modules in this Fabricator would handle entity extraction; downstream Modules would generate the RDF; others may support intermediate transformation, filtering, or enrichment.
 

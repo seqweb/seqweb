@@ -6,7 +6,7 @@ title: Polyglot Pipeline Architecture
 
 ## Overview
 
-One function of the SeqWeb system is to convert OEIS sequence data (`.seq` files) into semantic web knowledge graphs (`.ttl` files).  Such conversions lie in the domain of SeqWeb's _Webwright_ subsystem (see [Systems Design](/docs/systems_design) for context)
+One function of the SeqWeb system is to convert OEIS sequence data (`.seq` files) into semantic web knowledge graphs (`.ttl` files).  Such conversions lie in the domain of SeqWeb's _Webwright_ subsystem (see [Systems Design](systems_design) for context)
 
 The Webwright subsystem constructs the knowledge graph by orchestrating an ensemble of _Fabricators_. Each Fabricator is responsible for generating a specific portion of the knowledge graph, and implements a polyglot processing pipeline  composed of individually-implemented software _Modules_ designed to interface readily with related Modules.  Each Module may be implemented in an arbitrary language (e.g., Python, Java, Lisp, Bash — see [Rationale for Polyglot Implementation](#rationale-for-polyglot-implementation) below).
 

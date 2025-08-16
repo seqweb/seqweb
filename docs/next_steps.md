@@ -1,48 +1,56 @@
 # Next Steps After Setup
 
-This document covers what to do after completing the [Quickstart](quickstart.md) setup process.
+This document covers what to do after completing the [Quickstart](quickstart) setup process.
 
-## What You Now Have
+## After completing the quickstart:
+- You have an initialized **SeqWeb development** environment, centered in _your chosen directory_.
+- The directory path is stored as the value of the env var `SEQWEBDEV_HOME`.
+- Your configuration info (eg repo locations) is saved in the file `seqweb.conf` there.
+- You can invoke the SeqWeb CLI using the `seqwebdev` command in your shell.  Type
+```bash
+seqwebdev help
+```
+for additional info.
 
-After completing the quickstart, you'll have:
-- The `seqweb` command available in your shell
-- Your configuration saved in `seqweb.conf`
-- A working SeqWeb development environment
+## Configuration & Customization
 
-## Setting Up Your IDE
+Edit `seqweb.conf` to change repository paths or add new repositories and other SeqWeb configuration info.
+
+```ini
+[repos]
+seqweb=/path/to/your/seqweb-repo
+seqwebcode=/path/to/your/seqwebcode-repo
+# Add other repos as needed
+```
+
+## Setting up your IDE:
 
 ### Cursor/VS Code Workspace
 
 ```bash
-seqweb setup cursor
+seqwebdev setup cursor
 ```
 
-This generates a workspace configuration file that includes all your repositories.
+This generates a Cursor workspace configuration file in your SeqWeb dev home directory that includes the  repositories in `seqweb.conf`.  You can then start up Cursor from that folder by simply saying
+
+```bash
+cursor .
+```
 
 ### Other IDEs
 
-The CLI supports other IDEs as well. Run `seqweb setup help` for options.
+The SeqWeb system will support other IDEs as well.  Run `seqwebdev setup help` for options.
 
 ## Verification
 
 Test that everything is working:
 
 ```bash
-seqweb status          # Check repository status
-seqweb help            # Show available commands
-seqweb setup status    # Check workspace configuration
+seqwebdev status          # Check repository status
+seqwebdev help            # Show available commands
+seqwebdev setup status    # Check workspace configuration
 ```
 
-## Customization
-
-Edit `seqweb.conf` to change repository paths or add new repositories:
-
-```ini
-[repos]
-seqwebcode=/path/to/your/seqwebcode
-seqweb=/path/to/your/seqweb
-# Add other repos as needed
-```
 
 ## Troubleshooting
 
@@ -52,12 +60,12 @@ seqweb=/path/to/your/seqweb
 
 ## Learning More
 
-- Read the [SeqWeb Overview](seqweb_overview.md) for project context
-- Explore the [Systems Design](systems_design.md) for architecture details
-- Check out the [Polyglot Pipeline](polyglot_pipeline.md) for development patterns
+- Read the [SeqWeb Overview](seqweb_overview) for project context
+- Explore the [Systems Design](systems_design) for architecture details
+- Check out the [Polyglot Pipeline](polyglot_pipeline) for more development patterns
 
 ## Getting Help
 
-- Run `seqweb help` for CLI assistance
+- Run `seqwebdev help` for CLI assistance
 - Check the [project documentation](https://www.seqweb.org/)
 - Join the [community discussions](https://github.com/seqweb/seqweb/discussions)

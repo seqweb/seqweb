@@ -10,24 +10,7 @@ This guide will quickly get you up and running with the SeqWeb development envir
 
 ## Quick Setup Steps
 
-### 1. Clone required repositories
-
-You'll need some or all of the following repositories available on your system:
-
-- **seqwebcode** (required): Main development repository with tools and pipeline
-- **seqweb** (recommended): Project documentation and website
-- **seqwebdata** (optional): Generated RDF data files
-- **oeisdata** (optional): OEIS source data corpus
-- **.github** (SeqWeb admin only): misc. Github `seqweb.org` project collateral
-
-Clone the required repositories using standard Git commands. For example:
-
-```bash
-git clone https://github.com/seqweb/seqwebcode.git ~/Devo/Code/seqwebcode
-git clone https://github.com/seqweb/seqweb.git ~/Devo/seqweb/seqweb
-```
-
-### 2. Establish your SeqWeb Development Home directory
+### 1. Establish your SeqWeb Development Home directory
 
 For example:
 ```bash
@@ -39,9 +22,9 @@ You can use any directory name and location you like.
 
 After the bootstrap process is complete this location will be available as the value of the environment variable `SEQWEBDEV_HOME`.
 
-_Note:_ By design the SeqWeb dev home folder does **not** contain a repo; instead it acts as an operational hub from which you can configure and coordinate your multi-repo SeqWeb development and work environment.  In particular after bootstrapping it will contain the SeqWeb system's master multi-repo configuration file, `seqweb.conf`.
+_Note:_ By design the SeqWeb dev home folder does **not** contain a repo; instead it acts as an operational hub from which you can configure and coordinate your multi-repo SeqWeb development and work environment.  In particular after bootstrapping it will contain the SeqWeb system's master multi-repo configuration file, `seqweb.conf`, and the entry point for the SeqWeb CLI.
 
-### 3. Run the **bootstrap** script
+### 2. Run the **bootstrap** script
 
 Copy and execute the following one-line command:
 
@@ -51,10 +34,38 @@ curl -s https://raw.githubusercontent.com/seqweb/seqwebcode/main/bootstrap | bas
 
 The bootstrap script will then:
 - Detect the current directory and record it as the SeqWeb dev home
-- Initialize the shared project-level `seqweb.conf` configuration file in that folder
-- Run a configuration wizard to populate the repository locations into `seqweb.conf`.
-- Complete the setup process including CLI configuration
+- If needed, initialize a shared project-level `seqweb.conf` configuration file in that folder
+- Complete the setup process including establishing the SeqWeb CLI 
 
-## What Happens Next
+### 3. Clone and register repositories if needed.
 
-After completing these steps, you'll have a working SeqWeb development environment. See [Next Steps](next_steps.md) for what to do next. 
+You'll need some or all of the following repositories to be present on your system:
+
+- **seqwebcode** (required): Main development repository with tools and pipeline
+- **seqweb** (recommended): Project documentation and website
+- **seqwebdata** (optional): Generated RDF data files
+- **oeisdata** (optional): OEIS source data corpus
+- **.github** (SeqWeb admin only): misc. Github `seqweb.org` project collateral
+
+Clone any needed repositories not already present using standard Git commands.  For example:
+
+```bash
+git clone https://github.com/seqweb/seqwebcode.git
+git clone https://github.com/seqweb/seqweb.git 
+```
+You may clone them anywhere you'd like.  By default the SeqWeb system will assume they are in subdirectories of the SeqWeb dev home (as though the `git clone` commands were issued there). 
+_However_ **if they are located elsewhere**, you should now edit `seqweb.conf` to reflect this.
+You need not modify anything else in the file, such as for repos or features you aren't using.
+
+### 4. Start the SeqWeb CLI
+
+To verify its availability, just type the minimal command
+
+```bash
+seqwebdev
+```
+The CLI should respond sprightly.
+
+## Happy SeqWeb Development!
+
+After completing these quickstart steps, you'll have a working SeqWeb development environment. See [Next Steps](next_steps) for further suggestions. 
