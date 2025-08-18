@@ -1,17 +1,29 @@
-# SeqWeb Documentation Repository
+# SeqWeb website & documentation repo
 
-This repository contains the documentation for [SeqWeb](https://www.seqweb.org/).
+This repository contains the static pages for [SeqWeb](https://www.seqweb.org/).
+The site is built and served by GitHub Pages using Jekyll.
+It also is home for all project documentation (see `docs/` folder)
 
 ## Repository Structure
 
-- `docs/` - Documentation pages (seqweb_overview.md, systems_design.md, status.md)
-- `assets/icons/` - Public assets (SeqWeb icons)
-- `_dev/` - Development files (not rendered)
-- `_includes/` - Jekyll includes (navigation.html)
-- `_layouts/` - Jekyll layouts (default.html)
-- `index.md` - Landing page
-- `_config.yml` - Jekyll configuration
-
-## Local Development
-
-To work on the docs locally, clone this repository and make changes to the Markdown files. The site is built and served by GitHub Pages using Jekyll. 
+```
+seqweb/                   # Root directory
+├── _drafts/              # Development drafts, midst-migration debris and other WIP
+├── _includes/            # Jekyll includes
+│   ├── footer.html       # Footer template
+│   ├── license_notice.md # License notice content for footer (both CC-BY-SA and MIT)
+│   └── navigation.html   # Navbar header template
+├── _layouts/             # Jekyll layouts
+│   └── default.html      # Default page layout
+├── assets/               # Asset files
+│   ├── drawings/         # Diagrams etc - `.drawio` sources and `.svg` renderings
+│   └── icons/            # Icon `.png` files - scaless sources, 32x32 & 64x64 sizes
+├── docs/                 # Documentation content pages
+├── .gitignore            # Git ignore patterns
+├── _config.yml           # Jekyll configuration
+├── CNAME                 # Custom domain config
+├── CONTRIBUTING.md       # Contributing guidelines [todo: more content]
+├── index.md              # Landing page
+├── LICENSE               # MIT license for this repo
+└── README.md             # This README file
+```

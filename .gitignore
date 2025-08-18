@@ -6,7 +6,7 @@ _site/
 vendor/
 
 # Development files
-_dev/
+# _drafts/
 
 # OS generated files
 .DS_Store
