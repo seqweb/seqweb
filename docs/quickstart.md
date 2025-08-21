@@ -53,18 +53,19 @@ Clone any needed repositories not already present using standard Git commands.  
 git clone https://github.com/seqweb/seqwebcode.git
 git clone https://github.com/seqweb/seqweb.git 
 ```
-You may clone them anywhere you'd like.  By default the SeqWeb system will assume they are in subdirectories of the SeqWeb dev home (as though the `git clone` commands were issued there). 
-_However_ **if they are located elsewhere**, you should now edit `seqweb.conf` to reflect this.
-You need not modify anything else in the file, such as for repos or features you aren't using.
+You may clone them anywhere you'd like.  The default SeqWeb config assumes they are in subdirectories of the SeqWeb dev home (as though the `git clone` commands were issued there). 
+
+- _However_ **if they are located elsewhere**, you should now edit `seqweb.conf` to reflect this.
+You need not modify anything else in the file, such as entries for repos or features you aren't (yet) using.
 
 ### 4. Start the SeqWeb CLI
 
-To verify its availability, just type the minimal command
+To begin you can just type the minimal SeqWeb CLI command
 
 ```bash
 seqwebdev
 ```
-The CLI should respond sprightly.
+The CLI will ensure that the SeqWeb dev environment is established then respond in a sprightly manner.
 
 ## Happy SeqWeb Development!
 

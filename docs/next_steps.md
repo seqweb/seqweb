@@ -28,15 +28,11 @@ seqwebcode=/path/to/your/seqwebcode-repo
 ### Cursor/VS Code Workspace
 
 ```bash
-seqwebdev setup cursor
+seqwebdev cursor
 ```
 
-This ensures there's a Cursor workspace configuration file (`seqwebdev.code-workspace`) in your SeqWeb dev home directory that knows about the repositories in `seqweb.conf`along with other useful settings.  The command will either generate the file from scratch, or respectfully modify an existing one. 
+This starts up Cursor in your SeqWeb dev home directory.  It first ensures there's a Cursor workspace configuration file (`seqwebdev.code-workspace`) that knows about the repositories in `seqweb.conf`along with other useful settings.  The system will either generate the file from scratch, or respectfully modify an existing one. 
 
-You can then start up Cursor from that folder by simply saying
-```bash
-cursor .
-```
 
 [everything below here is still WIP]
 
