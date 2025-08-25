@@ -12,16 +12,29 @@ seqwebdev help
 ```
 for additional info.
 
+
 ## Configuration & Customization
 
-Edit `seqweb.conf` to change repository paths or add new repositories and other SeqWeb configuration info.
+You should now edit `seqweb.conf` if you need to change repository paths or add new repositories.
+You can also add/modify other SeqWeb configuration info sections if you wish.
 
 ```ini
 [repos]
-seqweb=/path/to/your/seqweb-repo
-seqwebcode=/path/to/your/seqwebcode-repo
+seqweb="/path/to/your/seqweb-repo"
+seqwebcode="/path/to/your/seqwebcode-repo"
 # Add other repos as needed
 ```
+
+## SeqWeb development environment persistent key-value store: `seqvar`
+
+The SeqWeb system uses a simple persistent "environment variable" facilty referred to as the _`seqvar` store_.  In addition to polyglot programmatic access to get and set these values, code can also retrieve them as dictionaires filtered by key string patterns.  The CLI supports all these too, as well as a command to dump the entire store.  Try
+```bash
+seqwebdev vars
+```
+to see the "online" version of your configuration along with other data.
+
+(The `seqvar` store is implemented as a SQLite database whose backing files are in the `.state/` subdirectory of the `seqwebdev` home folder.)
+
 
 ## Setting up your IDE:
 
@@ -31,40 +44,19 @@ seqwebcode=/path/to/your/seqwebcode-repo
 seqwebdev cursor
 ```
 
-This starts up Cursor in your SeqWeb dev home directory.  It first ensures there's a Cursor workspace configuration file (`seqwebdev.code-workspace`) that knows about the repositories in `seqweb.conf`along with other useful settings.  The system will either generate the file from scratch, or respectfully modify an existing one. 
-
-
-[everything below here is still WIP]
+This ensures there's a Cursor workspace configuration file (`seqwebdev.code-workspace`) that knows about the repositories in `seqweb.conf`along with other useful settings.  The system will either generate the workspace file from scratch, or respectfully modify an existing one. It uses information from the `seqvar` store to create the augmented workspace configuration file.
 
 ### Other IDEs
-
+***This is currently still WIP***<br>
 The SeqWeb system will support other IDEs as well.  Run `seqwebdev setup help` for options.
 
-## Verification
-
-Test that everything is working:
-
-```bash
-seqwebdev status          # Check repository status
-seqwebdev help            # Show available commands
-seqwebdev setup status    # Check workspace configuration
-```
-
-
-## Troubleshooting
-
-- **Permission denied**: Make sure you have write access to your dev home directory
-- **Command not found**: Restart your terminal or run `source ~/.bashrc`
-- **Repo not found**: Check the paths in `seqweb.conf`
 
 ## Learning More
-
+Check the [online project documentation](https://www.seqweb.org/), in particular:
 - Read the [SeqWeb Overview](seqweb_overview) for project context
 - Explore the [Systems Design](systems_design) for architecture details
-- Check out the [Polyglot Pipeline](polyglot_pipeline) for more development patterns
+- Check out the [Polyglot Pipeline](polyglot_pipeline) for ETL development patterns
 
 ## Getting Help
-
-- Run `seqwebdev help` for CLI assistance
-- Check the [project documentation](https://www.seqweb.org/)
-- Join the [community discussions](https://github.com/seqweb/seqweb/discussions)
+- Run `seqwebdev help` for CLI hints
+- To reach the SeqWeb dev community and admins, see the project's [Contact](contact) page.
