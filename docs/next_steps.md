@@ -1,4 +1,10 @@
-# Next Steps After Setup
+---
+layout: default
+title: Next Steps After Quickstart
+permalink: /docs/next_steps/
+---
+
+# Next Steps After Quickstartß
 
 This document covers what to do after completing the [Quickstart](quickstart) setup process.
 

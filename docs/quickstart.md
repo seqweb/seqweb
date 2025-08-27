@@ -1,3 +1,9 @@
+---
+layout: default
+title: SeqWeb Developer Quickstart
+permalink: /docs/quickstart/
+---
+
 # SeqWeb Developer Quickstart
 
 This guide will quickly get you up and running with the SeqWeb development environment.
