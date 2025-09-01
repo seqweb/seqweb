@@ -117,7 +117,7 @@ class BaseCommand:
             return  # Subcommand handled everything
         
         # 3. No subcommand found - do this command's own work
-        self.do_command_things_or_whatever()
+        self.do_own_work()
     
     def do_initializations(self):
         """Override with command-specific initialization"""
@@ -140,7 +140,7 @@ class BaseCommand:
         
         return False
     
-    def do_command_things_or_whatever(self):
+    def do_own_work(self):
         """Override with command-specific functionality"""
         pass
     
@@ -172,7 +172,7 @@ class SeqWebDevCommand(BaseCommand):
         """Setup fundamental environment preconditions"""
         setup_fundamental_environment()
     
-    def do_command_things_or_whatever(self):
+    def do_own_work(self):
         """Root command with no subcommand - show help"""
         show_help()
 
@@ -187,7 +187,7 @@ class SeqvarCommand(BaseCommand):
         """Initialize seqvar database for subcommands"""
         init_seqvar_database()
     
-    def do_command_things_or_whatever(self):
+    def do_own_work(self):
         """Seqvar command with no subcommand - show help"""
         show_seqvar_help()
 
@@ -202,7 +202,7 @@ class SetCommand(BaseCommand):
         """No initialization needed - parent already did it"""
         pass
     
-    def do_command_things_or_whatever(self):
+    def do_own_work(self):
         """Handle set command with arguments"""
         args = sys.argv[1:]
         if len(args) < 2:
