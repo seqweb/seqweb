@@ -28,7 +28,7 @@ Modules communicate via a shared abstract structure called a **box** — functio
 
 Each module is designed to function as a **plug-and-play unit** in one or more Fabricator pipelines, in which modules may be composed, replaced, tested, or reused independently, regardless of implementation language.
 
-Modules may be composed using two different implementation mechanisms: via **native orchestration** (when the modules are implemented in the same language) or executed in isolation through **IO wrappers** that expose a standardized shell or CLI interface. This hybrid model allows clean decoupling, testability, and flexibility across execution boundaries.
+Modules may be composed using two different implementation mechanisms: via **native orchestration** (when the modules are implemented in the same language) or executed in isolation through **shell wrappers** that expose a standardized shell interface. This hybrid model allows clean decoupling, testability, and flexibility across execution boundaries.
 
 ---
 
@@ -41,19 +41,19 @@ Modules may be composed using two different implementation mechanisms: via **nat
 | **outbox**          | The output `box` from a module, typically the inbox plus zero or more updates. |
 | **module**          | A processing unit that takes an inbox and returns an outbox. |
 | **module group**    | A group of related module definitions implemented in a single language. |
-| **program**         | A shell-invocable wrapper around a module exposing the inbox/outbox interface over CLI+JSON. |
-| **IO wrapper**      | A thin entry point that translates CLI input to a native-language `box`, invokes the inner function, and emits JSON output. |
-| **inner function**  | A native-language, pure function that maps a `box` (dict/map) to another `box`. |
+| **program**         | A shell-invocable wrapper around a module exposing the inbox/outbox interface over shell+JSON. |
+| **shell wrapper**   | A thin entry point that translates shell input to a native-language `box`, invokes the core function, and emits JSON output. |
+| **core function**   | A native-language, pure function that maps a `box` (dict/map) to another `box`. |
 | **destructuring interface** | A function signature that binds named keys from a box to function arguments (e.g., `*, prompt, noisy=False, **_rest`). |
 | **box-then-kwargs pattern** | Pattern where a function accepts the full `box` and also unpacks it for destructuring. |
-| **native composition** | Bypassing the IO wrapper by directly calling inner functions within the same runtime environment. |
+| **native composition** | Bypassing the shell wrapper by directly calling core functions within the same runtime environment. |
 | **shell execution** | Cross-language or system-level execution where modules run as subprocesses using wrapper interfaces. |
 
 ---
 
 ## Implementation Patterns
 
-### Destructuring Inner Function (Python)
+### Destructuring Core (Python)
 
 ```python
 def normalize_prompt(box: dict, *, prompt, noisy=False, **_rest) -> dict:
@@ -63,52 +63,66 @@ def normalize_prompt(box: dict, *, prompt, noisy=False, **_rest) -> dict:
     return {**box, "normalized_prompt": result}
 ```
 
-- Uses both full box and destructuring
-- Extra keys (e.g. `config`) are preserved even if unused
+- Takes full box, then uses destructuring to pick out args
+- Additional keys are preserved in _rest even if unused locally (to support fancy shadowing patterns)
+- Returns original box with new information; outbox can also override inbox simply by shadowing key
 - Enables composability and pass-through semantics
 
 ---
 
-### CLI Wrapper (Python)
+### Shell Wrapper (Python)
 
 ```python
 def main():
-    parser = argparse.ArgumentParser(description="Run a KA pipeline stage.")
+    # get arguments from shell
+    parser = argparse.ArgumentParser(description="Run 'Normalize Prompt' pipeline stage.")
     parser.add_argument("prompt")
     parser.add_argument("--noisy", action="store_true")
-    parser.add_argument("--config")
-
     args = parser.parse_args()
-    inbox = {"prompt": args.prompt, "noisy": args.noisy, "config": args.config}
+    # form the inbox for the core, call it to get the outbox, and dump it for "piping" 
+    inbox = {"prompt": args.prompt, "noisy": args.noisy}
     outbox = normalize_prompt(inbox, **inbox)
     json.dump(outbox, sys.stdout)
 ```
 
 ---
 
-## Generic Fabricator Example: Native Python
+## Fabricator Example: fabricate_response
 
 ```python
-from typing import Callable, Dict, List, Optional
+def fabricate_response(box: Dict[str, Any], *, prompt: str, noisy: bool = False, **_rest) -> Dict[str, Any]:
+    """Fabricator that processes a prompt through a pipeline: normalize, generate, present."""
+    initial_box = {'prompt': prompt, 'noisy': noisy, **_rest}
+    # list of modules to call in pipeline
+    modules = [
+        normalize_prompt,   # see above example
+        generate_response,  # ToDo
+        present_response    # ToDo
+    ]
+    return run_pipeline(modules, initial_box)
 
-def run_pipeline(
-    stages: Optional[List[Callable]] = None, initial_box: Optional[Dict] = None
-) -> Dict:
-    """Run a sequence of stages on a box, using the box-then-kwargs pattern."""
-    if stages is None:
-        stages = []
-    if initial_box is None:
-        initial_box = {}
+def main():
+    parser = argparse.ArgumentParser(description="fabricate_response - Prompt processing fabricator")
+    parser.add_argument("prompt", help="The prompt to process")
+    parser.add_argument("--noisy", action="store_true", help="Enable verbose output")
+    args = parser.parse_args()
+    
+    box = {'prompt': args.prompt, 'noisy': args.noisy}
+    result = fabricate_response(box, **box)
+    json.dump(result, sys.stdout)
+```
 
+where the `run_pipeline` functional helper composes modules using the box-then-kwargs pattern:
+
+```python
+def run_pipeline(modules: List[Callable], initial_box: Dict) -> Dict:
     box = initial_box
-    for stage in stages:
-        box = stage(box, **box)
+    for module in modules:
+        box = module(box, **box)  # Each module gets full box + destructured args
     return box
 ```
-This example Fabricator:
-- Orchestrates a set of native Python "stage" modules that it receives as an argument
-- Supports implicit pass-through of shared arguments such  as `config`, `noisy`, etc.
-- Could be easily extended with conditional logic, tracing, or logging
+
+This fabricator demonstrates that **"Fabricators can be Modules too"** — `fabricate_response` can be used both as a standalone program and as a composable module in larger pipelines. Note: the implementation of the last two modules (`generate_response` and `present_response`) are left as exercises for the reader.
 
 ---
 
@@ -116,11 +130,11 @@ This example Fabricator:
 
 When modules are implemented in different languages and invoked as standalone programs:
 
-- Each **program derives its `inbox` from its command-line arguments**, using the language's CLI parsing conventions (e.g., `argparse` in Python, `getopts` in Bash, etc.).
+- Each **program derives its `inbox` from its command-line arguments**, using the language's shell parsing conventions (e.g., `argparse` in Python, `getopts` in Bash, etc.).
 - These arguments effectively form a **shell-flavored keyword map**, which becomes the initial `inbox`.
-- The Fabricator then passes this inbox to the corresponding **inner function** (using the destructuring pattern if supported).
+- The Fabricator then passes this inbox to the corresponding **core function** (using the destructuring pattern if supported).
 - The result is a new **outbox**, which is serialized to **JSON** and written to stdout (or another standard stream or file as appropriate).
-- **Optionally**, a program may support a special flag (e.g. `--inbox-json`) to, say, preload an initial inbox from a JSON object, merging it with the CLI-derived args — but this is not required.
+- **Optionally**, a program may support a special flag (e.g. `--inbox-json`) to, say, preload an initial inbox from a JSON object, merging it with the shell-derived args — but this is not required.
 - If no such preload mechanism is used, the Fabricator can default to starting from an **empty box**, or build it solely from other command-line arguments.
 
 This design allows for:
@@ -133,8 +147,8 @@ This design allows for:
 By structuring Module programs to build their inbox from command-line arguments (optionally merging with a JSON seed), each Module becomes naturally reusable in multiple contexts:
 
 - **As a stage** in a larger **polyglot pipeline**, invoked by a Fabricator.
-- **As a standalone CLI tool**, usable directly by developers or scripts.
-- **In isolation for testing**, with inboxes constructed in code or passed via CLI.
+- **As a standalone shell tool**, usable directly by developers or scripts.
+- **In isolation for testing**, with inboxes constructed in code or passed via shell.
 
 This versatility makes it easy to scale from interactive experimentation to production pipelines without changing the module’s core logic.
 
