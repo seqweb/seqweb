@@ -38,11 +38,10 @@ Modules may be composed using two different implementation mechanisms: via **nat
 |---------------------|---------|
 | **box**             | A dictionary-like structure of key-value pairs shared between modules. It serves both as the input/output of each module and as a shared **common carrier** of state across pipeline stages. |
 | **inbox**           | The input `box` to a module. |
-| **outbox**          | The output `box` from a module, typically the inbox plus zero or more updates. |
+| **outbox**          | The output `box` from a module, typically the inbox plus zero or more updates to existing key-values and/or additions of new key-values. |
 | **module**          | A processing unit that takes an inbox and returns an outbox. |
-| **module group**    | A group of related module definitions implemented in a single language. |
 | **program**         | A shell-invocable wrapper around a module exposing the inbox/outbox interface over shell+JSON. |
-| **shell wrapper**   | A thin entry point that translates shell input to a native-language `box`, invokes the core function, and emits JSON output. |
+| **shell wrapper**   | A thin entry point that translates shell input to a native-language `box`, invokes the core function, and emits JSON output. Typically this is implemented as a "main" program.|
 | **core function**   | A native-language, pure function that maps a `box` (dict/map) to another `box`. |
 | **destructuring interface** | A function signature that binds named keys from a box to function arguments (e.g., `*, prompt, noisy=False, **_rest`). |
 | **box-then-kwargs pattern** | Pattern where a function accepts the full `box` and also unpacks it for destructuring. |
@@ -65,7 +64,7 @@ def normalize_prompt(box: dict, *, prompt, noisy=False, **_rest) -> dict:
 
 - Takes full box, then uses destructuring to pick out args
 - Additional keys are preserved in _rest even if unused locally (to support fancy shadowing patterns)
-- Returns original box with new information; outbox can also override inbox simply by shadowing key
+- Returns original box with new information; outbox can override inbox simply by shadowing keys
 - Enables composability and pass-through semantics
 
 ---
