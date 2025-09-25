@@ -6,7 +6,7 @@ permalink: /docs/next_steps/
 
 # Next Steps After Quickstart
 
-This document covers what to do after completing the [Quickstart](quickstart) setup process.
+This document covers what to do _after_ completing the [Quickstart](/docs/quickstart) setup process.
 
 ## After completing the quickstart:
 - You have an initialized **SeqWeb development** environment, centered in _your chosen directory_.
@@ -59,10 +59,10 @@ The SeqWeb system will support other IDEs as well.  Run `seqwebdev setup help` f
 
 ## Learning More
 Check the [online project documentation](https://www.seqweb.org/), in particular:
-- Read the [SeqWeb Overview](seqweb_overview) for project context
-- Explore the [Systems Design](systems_design) for architecture details
-- Check out the [Polyglot Pipeline](polyglot_pipeline) for ETL development patterns
+- Read the [SeqWeb Overview](/docs/seqweb_overview) for project context
+- Explore the [Systems Design](/docs/systems_design) for architecture details
+- Check out the [Polyglot Pipeline](/docs/polyglot_pipeline) for ETL development patterns
 
 ## Getting Help
 - Run `seqwebdev help` for CLI hints
-- To reach the SeqWeb dev community and admins, see the project's [Contact](contact) page.
+- To reach the SeqWeb dev community and admins, see the project's [Contact](/docs/contact) page.

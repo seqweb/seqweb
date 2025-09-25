@@ -75,4 +75,4 @@ The CLI will ensure that the SeqWeb dev environment is established then respond 
 
 ## Happy SeqWeb Development!
 
-After completing these quickstart steps, you'll have a working SeqWeb development environment. See [Next Steps](next_steps) for further suggestions. 
+After completing these quickstart steps, you'll have a working SeqWeb development environment. See [Next Steps](/docs/next_steps) for further suggestions. 
