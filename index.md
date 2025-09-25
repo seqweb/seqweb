@@ -22,3 +22,22 @@ title: SeqWeb
 
 [SeqWeb overview](/docs/seqweb_overview).
 
+### _With many thanks to our mentors, sponsors, partners, contributors & community..._
+
+<div style="text-align: center; margin: 2rem 0;">
+    <div style="display: flex; justify-content: center; align-items: center; gap: 2rem; flex-wrap: wrap;">
+        <div style="text-align: center;">
+            <a href="https://www.oeisf.org" target="_blank" style="text-decoration: none;">
+                <img src="{{ site.baseurl }}/assets/icons/oeis_icon_64x64.png" alt="OEIS Foundation" style="display: block; margin: 0 auto 0.5rem;">
+                <div style="font-size: 0.9rem; color: #333;">OEIS Foundation, Inc</div>
+            </a>
+        </div>
+        <div style="text-align: center;">
+            <a href="https://www.linkedin.com/company/prometheus-sherpas/?viewAsMember=true" target="_blank" style="text-decoration: none;">
+                <img src="{{ site.baseurl }}/assets/icons/prometheus_sherpas_icon_64x64.png" alt="Prometheus Sherpas" style="display: block; margin: 0 auto 0.5rem;">
+                <div style="font-size: 0.9rem; color: #333;">Prometheus Sherpas, LLC</div>
+            </a>
+        </div>
+    </div>
+</div>
+
