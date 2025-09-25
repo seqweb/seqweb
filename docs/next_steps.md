@@ -4,7 +4,7 @@ title: Next Steps After Quickstart
 permalink: /docs/next_steps/
 ---
 
-# Next Steps After Quickstartß
+# Next Steps After Quickstart
 
 This document covers what to do after completing the [Quickstart](quickstart) setup process.
 

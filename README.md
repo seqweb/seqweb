@@ -22,7 +22,7 @@ seqweb/                   # Root directory
 ├── .gitignore            # Git ignore patterns
 ├── _config.yml           # Jekyll configuration
 ├── CNAME                 # Custom domain config
-├── CONTRIBUTING.md       # Contributing guidelines [todo: more content]
+├── CONTRIBUTING.md       # Contributing guidelines
 ├── index.md              # Landing page
 ├── LICENSE               # MIT license for this repo
 └── README.md             # This README file
