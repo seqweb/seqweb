@@ -3,15 +3,20 @@ layout: default
 title: SeqWeb Project Contact Info
 ---
 
-## Project & Systems Administration
-[mailto:seqwebadmin@googlegroups.com](mailto:seqwebadmin@googlegroups) for all help requests, administrative, operational, support, issues, access or questions.
+#### Email **[SeqWeb Admin](mailto:seqwebadmin@googlegroups)** for project & systems help, access requests or administrative support
 
-## To participate (developers / contributors)
+**To participate (developers / contributors)**
 
-- Email Google Group: [mailto:seqwebdev@googlegroups.com](mailto:seqwebdev@googlegroups.com). 
+- IM Chat: **[`seqwebdev` Slack](https://seqwebdev.slack.com)**
+  - [(click here to request access)](https://forms.gle/Frxtt5aR2b4VZSEt7)
 
-- Slack: click to requst access to [`seqwebdev.slack.com`](https://forms.gle/Frxtt5aR2b4VZSEt7).
+- General, ideas, questions, planning, etc: **[Github Discussions](https://github.com/seqweb/seqweb/discussions)**
 
-- [Github Issues](https://github.com/seqweb/seqweb/issues)
+- Email: **[`seqwebdev` Google Group](mailto:seqwebdev@googlegroups.com)**
 
-- [SeqWeb project homepage](https://www.seqweb.org/)
+- Issues, bugs, features:
+  - **[Docs, Website & Services](https://github.com/seqweb/seqweb/issues)**
+  - **[Code, Dev Tools, Webwright, Webhouse](https://github.com/seqweb/seqwebcode/issues)**
+  - **[Knowledge Graph](https://github.com/seqweb/seqwebdata/issues)**
+
+#### SeqWeb project homepage: **[`seqweb.org`](https://www.seqweb.org/)**
