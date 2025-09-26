@@ -84,7 +84,22 @@ The wrapper exists solely to enable shell-based composition across languages. Al
 ### Destructuring Core (Python)
 
 ```python
-def normalize_prompt(box: dict, *, prompt, noisy=False, **_rest) -> dict:
+def normalize_prompt(box: Dict[str, Any], *, prompt: str, noisy: bool = False, **_rest) -> Dict[str, Any]:
+    """
+    Core function that normalizes a prompt and returns an outbox.
+    
+    Uses destructuring pattern to bind only needed parameters while preserving
+    the full box and any extra keys for pass-through semantics.
+    
+    Args:
+        box: Full input box dictionary
+        prompt: The prompt to normalize
+        noisy: Whether to enable verbose output (controls printing)
+        **_rest: Any additional keys in the box (preserved for pass-through)
+        
+    Returns:
+        outbox: The box plus any modifications made by this module
+    """
     result = prompt.strip().lower()
     if noisy:
         print(f"\n\t🧹 Normalized Prompt:\n{result}")
@@ -104,6 +119,17 @@ def normalize_prompt(box: dict, *, prompt, noisy=False, **_rest) -> dict:
 public static Map<String, Object> normalizePrompt(Map<String, Object> box, 
                                                  String prompt, 
                                                  boolean noisy) {
+    /**
+     * Core function that normalizes a prompt and returns an outbox.
+     * 
+     * Uses explicit parameter binding while preserving the full box
+     * and any extra keys for pass-through semantics.
+     * 
+     * @param box Full input box dictionary
+     * @param prompt The prompt to normalize
+     * @param noisy Whether to enable verbose output (controls printing)
+     * @return outbox The box plus any modifications made by this module
+     */
     String result = prompt.strip().toLowerCase();
     if (noisy) {
         System.out.println("\n\t🧹 Normalized Prompt:\n" + result);
@@ -139,6 +165,9 @@ Map<String, Object> outbox = normalizePrompt(box, prompt, noisy);
 
 ```python
 def main():
+    """Shell wrapper for normalize_prompt module."""
+    from libs.core.wrapper import get_inbox, dump_outbox
+    
     # Define argument specifications for this module
     argument_definitions = [
         ('prompt', str, 'The prompt to normalize', True),
@@ -146,20 +175,21 @@ def main():
     ]
     
     # Build inbox from stdin + CLI args using shared utility
-    inbox = build_inbox_from_args(argument_definitions)
+    inbox = get_inbox(argument_definitions)
     
     # Call core function with identical semantics
     outbox = normalize_prompt(inbox, **inbox)
     
     # Emit JSON output for pipeline consumption
-    json.dump(outbox, sys.stdout)
+    dump_outbox(outbox)
 ```
 
 **Key Points:**
-- Uses shared `build_inbox_from_args()` utility for consistent behavior
+- Uses shared `get_inbox()` and `dump_outbox()` utilities for consistent behavior
 - Minimal boilerplate: just define arguments and call core function
 - Supports both manual CLI usage and programmatic JSON input
 - JSON output is consumable by other pipeline modules
+- Imports wrapper utilities from `libs.core.wrapper` module
 
 ---
 
@@ -174,7 +204,7 @@ public static void main(String[] args) {
     );
     
     // Build inbox from stdin + CLI args using shared utility
-    Map<String, Object> inbox = Wrapper.buildInboxFromArgs(argumentDefinitions);
+    Map<String, Object> inbox = Wrapper.getInbox(argumentDefinitions);
     
     // Extract parameters for core function call
     String prompt = (String) inbox.get("prompt");
@@ -184,12 +214,12 @@ public static void main(String[] args) {
     Map<String, Object> outbox = normalizePrompt(inbox, prompt, noisy);
     
     // Emit JSON output for pipeline consumption
-    System.out.println(toJson(outbox));
+    Wrapper.dumpOutbox(outbox);
 }
 ```
 
 **Key Points:**
-- Uses shared `Wrapper.buildInboxFromArgs()` utility for consistent behavior
+- Uses shared `Wrapper.getInbox()` and `Wrapper.dumpOutbox()` utilities for consistent behavior
 - Minimal boilerplate: just define arguments and call core function
 - Supports both manual CLI usage and programmatic JSON input
 - JSON output is consumable by other pipeline modules
@@ -203,16 +233,29 @@ public static void main(String[] args) {
 ```python
 def fabricate_response(box: Dict[str, Any], *, prompt: str, noisy: bool = False, **_rest) -> Dict[str, Any]:
     """Fabricator that processes a prompt through a pipeline: normalize, generate, present."""
-    initial_box = {'prompt': prompt, 'noisy': noisy, **_rest}
-    # list of modules to call in pipeline
+    # Create initial box from destructured parameters
+    initial_box = {
+        'prompt': prompt,
+        'noisy': noisy,
+        **_rest  # Preserve any extra keys from the input box
+    }
+    
+    # Define the pipeline modules
     modules = [
         normalize_prompt,   # see above example
         generate_response,  # ToDo
         present_response    # ToDo
     ]
-    return run_pipeline(modules, initial_box)
+    
+    # Run the pipeline using the box-then-kwargs pattern
+    result = run_pipeline(modules, initial_box)
+    
+    return result
 
 def main():
+    """Shell wrapper for fabricate_response fabricator."""
+    from libs.core.wrapper import get_inbox, dump_outbox
+    
     # Define argument specifications for this fabricator
     argument_definitions = [
         ('prompt', str, 'The prompt to process', True),
@@ -220,19 +263,32 @@ def main():
     ]
     
     # Build inbox from stdin + CLI args using shared utility
-    inbox = build_inbox_from_args(argument_definitions)
+    inbox = get_inbox(argument_definitions)
     
     # Call core function with identical semantics
     outbox = fabricate_response(inbox, **inbox)
     
     # Emit JSON output for pipeline consumption
-    json.dump(outbox, sys.stdout)
+    dump_outbox(outbox)
 ```
 
 where the `run_pipeline` functional helper composes modules using the box-then-kwargs pattern:
 
 ```python
-def run_pipeline(modules: List[Callable], initial_box: Dict) -> Dict:
+def run_pipeline(modules: List[Callable], initial_box: Dict[str, Any]) -> Dict[str, Any]:
+    """
+    Run a pipeline of modules on an initial box.
+    
+    Each module receives the full box plus destructured arguments,
+    enabling both box-based and parameter-based access patterns.
+    
+    Args:
+        modules: List of module functions to execute in sequence
+        initial_box: The initial box to process through the pipeline
+        
+    Returns:
+        Final box after all modules have been applied
+    """
     box = initial_box
     for module in modules:
         box = module(box, **box)  # Each module gets full box + destructured args
@@ -244,17 +300,19 @@ def run_pipeline(modules: List[Callable], initial_box: Dict) -> Dict:
 ```java
 public static Map<String, Object> fabricateResponse(Map<String, Object> box, String prompt, boolean noisy) {
     // Fabricator that processes a prompt through a pipeline: normalize, generate, present
+    // Create initial box from destructured parameters
     Map<String, Object> initialBox = new HashMap<>(box);
     initialBox.put("prompt", prompt);
     initialBox.put("noisy", noisy);
     
-    // List of modules to call in pipeline
+    // Define the pipeline modules
     List<Function<Map<String, Object>, Map<String, Object>>> modules = Arrays.asList(
         FabricateResponse::normalizePrompt,   // see above example
         FabricateResponse::generateResponse,  // ToDo
         FabricateResponse::presentResponse    // ToDo
     );
     
+    // Run the pipeline using the box-then-kwargs pattern
     return runPipeline(modules, initialBox);
 }
 
@@ -266,7 +324,7 @@ public static void main(String[] args) {
     );
     
     // Build inbox from stdin + CLI args using shared utility
-    Map<String, Object> inbox = Wrapper.buildInboxFromArgs(argumentDefinitions);
+    Map<String, Object> inbox = Wrapper.getInbox(argumentDefinitions);
     
     // Extract parameters for core function call
     String prompt = (String) inbox.get("prompt");
@@ -276,7 +334,7 @@ public static void main(String[] args) {
     Map<String, Object> outbox = fabricateResponse(inbox, prompt, noisy);
     
     // Emit JSON output for pipeline consumption
-    System.out.println(toJson(outbox));
+    Wrapper.dumpOutbox(outbox);
 }
 ```
 
@@ -286,9 +344,19 @@ where the `runPipeline` functional helper composes modules using the box-then-kw
 public static Map<String, Object> runPipeline(
     List<Function<Map<String, Object>, Map<String, Object>>> modules, 
     Map<String, Object> initialBox) {
+    /**
+     * Run a pipeline of modules on an initial box.
+     * 
+     * Each module receives the full box, enabling both box-based
+     * and parameter-based access patterns.
+     * 
+     * @param modules List of module functions to execute in sequence
+     * @param initialBox The initial box to process through the pipeline
+     * @return Final box after all modules have been applied
+     */
     Map<String, Object> box = new HashMap<>(initialBox);
     for (Function<Map<String, Object>, Map<String, Object>> module : modules) {
-        box = module.apply(box);  // Each module gets full box + destructured args
+        box = module.apply(box);  // Each module gets full box
     }
     return box;
 }
