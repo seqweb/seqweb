@@ -114,9 +114,9 @@ Additionally, it is expected that SeqWeb will also support a collection of diver
 
 Development and delivery for SeqWeb are supported by Github repos, under the [https://github.com/seqweb/](https://github.com/seqweb/) prefix:
 
-- ![SeqWeb Data Icon](/assets/icons/seqwebdata_icon_32x32.png) `seqwebdata` is intended to contain a snapshot of SeqWeb's knowledge graph, synchronized to track with changes to `oeisdata` and reflecting its content and structure
+- ![SeqWeb Data Icon](/assets/icons/seqwebdata_icon_32x32.png) [`seqwebdata`](https://github.com/seqweb/seqwebcode) is intended to contain a snapshot of SeqWeb's knowledge graph, synchronized to track with changes to `oeisdata` and reflecting its content and structure
 
-- ![SeqWeb Code Icon](/assets/icons/seqwebcode_icon_32x32.png) `seqwebcode` is the development repo, and is intended as the source control for everything else in the SeqWeb system
+- ![SeqWeb Code Icon](/assets/icons/seqwebcode_icon_32x32.png) [`seqwebcode`](https://github.com/seqweb/seqwebdata) is the development repo, and is intended as the source control for everything else in the SeqWeb system
 
 
 #### Possible Benefits to the OEIS from SeqWeb
